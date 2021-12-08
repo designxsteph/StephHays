@@ -1,0 +1,13 @@
+.dotnet/
+tools/
+BuildArtifacts/
+config.wyam.*
+.DS_Store
+output/
+bin/
+obj/
+publish/
+node_modules/
+cache/
+apple-touch-*.png
+favicon.ico
