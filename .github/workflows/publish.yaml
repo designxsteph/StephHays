@@ -1,0 +1,36 @@
+name: Publish Website
+on:
+    workflow_dispatch:
+      push:
+        branches:
+          - master
+
+env:
+  DOTNET_VERSION: '6.0.x'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+      # Checkout the repo
+      - uses: actions/checkout@master
+      
+      # Setup .NET Core SDK
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '${{ env.DOTNET_VERSION }}'
+      
+      # Build Statiq
+      - name: Build Statiq
+        run: dotnet run
+      
+      # Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: gh-pages
+          FOLDER: output
+          GITHUB_TOKEN: ${{ secrets.STATIQ_TOKEN }}
