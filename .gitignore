@@ -11,3 +11,10 @@ node_modules/
 cache/
 apple-touch-*.png
 favicon.ico
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

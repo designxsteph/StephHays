@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Statiq.App;
 using Statiq.Web;
+using Statiq.Common;
 
 namespace MySite
 {
@@ -10,6 +11,8 @@ namespace MySite
       await Bootstrapper
         .Factory
         .CreateWeb(args)
+        .AddProcess(ProcessTiming.Initialization, _ => new ProcessLauncher("yarn", "install", "--immutable"))
+        .AddProcess(ProcessTiming.BeforeExecution, _ => new ProcessLauncher("gulp"))
         .RunAsync();
   }
 }
