@@ -1,0 +1,7 @@
+{
+  "name": "StephHays",
+  "packageManager": "yarn@3.1.1",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
