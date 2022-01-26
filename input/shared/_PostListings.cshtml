@@ -1,33 +1,17 @@
 <div class="container-lg py-6">
     <div class="row">
-        @*<div class="col-xl-10 mx-auto">
-            <h3 class="mb-4">Posts</h3>
-            <div class="row">
-                @foreach (IDocument document in Model.GetChildren())
-                {
-                    @Html.Partial("_PostBlurb", (IDocument) document)
-                }
-            </div>
-            <div class="text-center">
-                @Html.Partial("_Pager")
-                <div class="mt-5">
-                    <h6>Browse Tags</h6>
-                    @Html.Partial("_TagList")
-                </div>
-            </div>
-        </div>*@
         <h3 class="mb-4">Posts</h3>
         <div class="row">
             @foreach (IDocument document in Model.GetChildren())
             {
-                @Html.Partial("_PostBlurb", (IDocument) document)
+                @Html.Partial("~/shared/_PostBlurb.cshtml", (IDocument) document)
             }
         </div>
         <div class="text-center">
-            @Html.Partial("_Pager")
+            @Html.Partial("~/shared/_Pager.cshtml")
             <div class="mt-5">
                 <h6>Browse Tags</h6>
-                @Html.Partial("_TagList")
+                @Html.Partial("~/shared/_TagList.cshtml")
             </div>
         </div>
     </div>
