@@ -53,11 +53,11 @@ Title: Home
                 <div class="position-relative mx-4">
                     <div class="card position-absolute h-100-percent w-100-percent bg-beta ms-n3 mt-3"></div>
                     <div class="card text-opposite position-relative">
-                        @Html.Partial("_HeaderCard")
+                        @Html.Partial("~/shared/_HeaderCard.cshtml")
                         <div class="m-4 position-relative border border-opposite px-3 py-5 text-center">
                             <div class="font-handwriting display-3 text-alpha fw-bolder text-shadow-black-2px">Steph Hays</div>
                             <div class="h4 mb-3 pt-3 fw-bold">(Designer && Developer)</div>
-                            @Html.Partial("_SocialLinks")
+                            @Html.Partial("~/shared/_SocialLinks.cshtml")
                         </div>
                     </div>
                 </div>
@@ -123,7 +123,7 @@ Title: Home
 
             @foreach (IDocument document in recentCode)
             {
-                @Html.Partial("_PostBlurb", (IDocument) document)
+                @Html.Partial("~/shared/_PostBlurb.cshtml", (IDocument) document)
             }
         </div>
     </div>
@@ -347,7 +347,7 @@ Title: Home
 
             @foreach (IDocument document in recentBlogs)
             {
-                @Html.Partial("_PostBlurb", (IDocument) document)
+                @Html.Partial("~/shared/_PostBlurb.cshtml", (IDocument) document)
             }
         </div>
     </div>

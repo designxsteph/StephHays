@@ -9,14 +9,14 @@ CenteredLayout: true
 @if (Model.ContainsKey(Keys.GroupKey))
 {
     <section class="position-relative bg-alpha">
-        @Html.Partial("_HeaderBackgroundOne")
+        @Html.Partial("~/shared/_HeaderBackgroundOne.cshtml")
         <div class="container position-relative px-0 py-6">
             <div class="row g-0">
                 <div class="col-md-8 mx-auto">
                     <div class="position-relative mx-4">
                         <div class="card position-absolute h-100-percent w-100-percent bg-delta ms-n3 mt-3"></div>
                         <div class="card text-opposite position-relative">
-                            @Html.Partial("_HeaderCard")
+                            @Html.Partial("~/shared/_HeaderCard.cshtml")
                             <div class="m-4 position-relative border border-opposite p-5">
                                 <h1 class="mb-0">Posts Tagged - "@Model.GetString(Keys.GroupKey)"</h1>
                             </div>
@@ -27,7 +27,7 @@ CenteredLayout: true
         </div>
     </section>
     <section class="bg-main">
-        @Html.Partial("_PostListings")
+        @Html.Partial("~/shared/_PostListings.cshtml")
     </section>
 }
 else
@@ -36,16 +36,16 @@ else
         <div class="container-lg p-0">
             <div class="row g-0">
                 <div class="col-lg-10 mx-auto position-relative">
-                    @Html.Partial("_HeaderBackgroundThree")
+                    @Html.Partial("~/shared/_HeaderBackgroundThree.cshtml")
                     <div class="row g-0">
                         <div class="col-md-8 mx-auto py-6">
                             <div class="position-relative mx-4">
                                 <div class="card position-absolute h-100-percent w-100-percent bg-epsilon ms-n3 mt-3"></div>
                                 <div class="card text-opposite position-relative">
-                                    @Html.Partial("_HeaderCard")
+                                    @Html.Partial("~/shared/_HeaderCard.cshtml")
                                     <div class="m-4 position-relative border border-opposite p-5">
                                         <h1>@Document.GetString("Title")</h1>
-                                        @Html.Partial("_TagList")
+                                        @Html.Partial("~/shared/_TagList.cshtml")
                                     </div>
                                 </div>
                             </div>

@@ -4,21 +4,21 @@
 }
 <!DOCTYPE html>
 <html lang="en" data-sh-theme="moon">
-@Html.Partial("_LayoutHead")
+@Html.Partial("~/shared/_LayoutHead.cshtml")
 <body class="bg-alpha">
-    @Html.Partial("_LayoutBodyOpening")
+    @Html.Partial("~/shared/_LayoutBodyOpening.cshtml")
     <main role="main">
         <section class="position-relative z-index-1">
             <div class="container-lg p-0">
                 <div class="row g-0">
                     <div class="col-lg-10 mx-auto position-relative">
-                        @Html.Partial("_HeaderBackgroundThree")
+                        @Html.Partial("~/shared/_HeaderBackgroundThree.cshtml")
                         <div class="row g-0">
                             <div class="col-md-8 mx-auto py-6">
                                 <div class="position-relative mx-4">
                                     <div class="card position-absolute h-100-percent w-100-percent bg-epsilon ms-n3 mt-3"></div>
                                     <div class="card text-opposite position-relative">
-                                        @Html.Partial("_HeaderCard")
+                                        @Html.Partial("~/shared/_HeaderCard.cshtml")
                                         <div class="m-4 position-relative border border-opposite p-5">
                                             <span class="text-capitalize">@Model.GetDateTime(WebKeys.Published).ToString("dd MMMM yyyy")</span>
                                             <h1 class="mt-2 mb-0">@Document.GetString("Title")</h1>
@@ -72,12 +72,12 @@
             <div id="draggableContainer" class="container-lg py-6">
                 <div class="row">
                     <div class="col-lg-8 mx-auto px-md-5 position-relative">
-                        @Html.Partial("_Connect")
+                        @Html.Partial("~/shared/_Connect.cshtml")
                     </div>
                 </div>
             </div>
         </section>
     </main>
-    @Html.Partial("_LayoutFooter")
+    @Html.Partial("~/shared/_LayoutFooter.cshtml")
 </body>
 </html>
