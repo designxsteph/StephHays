@@ -1,0 +1,27 @@
+@{
+    IDocument previous = Model.GetDocument(Keys.Previous);
+    IDocument next = Model.GetDocument(Keys.Next);
+}
+
+@if (previous != null || (previous == null && next != null))
+{
+    <div class="btn-group btn-group-sm mt-5" role="group" aria-label="Previous and next page navigation">
+        @if (previous != null)
+        {
+            <a role="button" href="@previous.GetLink()" class="btn btn-outline-alpha" title="Previous page of blog posts"><i class="fas fa-backward"></i></a>
+        }
+        else
+        {
+            <button type="button" class="btn btn-outline-alpha" title="No previous pages of blog posts" aria-disabled="true" disabled><i class="fas fa-backward"></i></button>
+        }
+        <div class="bg-alpha fw-bold d-flex align-items-center justify-content-center px-2"><span>Page @Model.GetString(Keys.Index)</span></div>
+        @if (next != null)
+        {
+            <a role="button" href="@next.GetLink()" class="btn btn-outline-alpha" title="Next page of blog posts"><i class="fas fa-forward"></i></a>
+        }
+        else
+        {
+            <button type="button" class="btn btn-outline-alpha" title="No more pages of blog posts" aria-disabled="true" disabled><i class="fas fa-forward"></i></button>
+        }
+    </div>
+}

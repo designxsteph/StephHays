@@ -1,0 +1,106 @@
+@include media-breakpoint-up(md) {
+    #ticTacToeContainer {
+        top: 189px; 
+        left: 59px;
+        width: 122px;
+    }
+
+    #ticTacToe {
+        &.active {
+            &.replay {
+                button, .score {
+                    display: inline-block;
+                }
+            }
+
+            &.loser {
+                .board {
+                    border-color: var(--sh-red);
+                    outline: 10px double var(--sh-red);
+                }
+
+                .score {
+                    color: var(--sh-red);
+                    margin-left: -7px;
+                }
+            }
+
+            &.winner {
+                .board {
+                    border-color: var(--sh-green);
+                    outline: 10px double var(--sh-green);
+                }
+
+                .score {
+                    color: var(--sh-green);
+                    margin-left: -17px;
+                }
+            }
+
+            &.tie {
+                .board {
+                    border-color: var(--sh-yellow);
+                    outline: 10px double var(--sh-yellow);
+                }
+
+                .score {
+                    color: var(--sh-yellow);
+                    margin-left: 20px;
+                }
+            }
+
+            .board {
+                border-color: var(--sh-epsilon);
+                outline: double 1px transparent;
+                transition: outline 0.6s linear, border-color 0.6s linear;
+            }
+        }
+
+        .board {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            border: 2px solid transparent;
+
+            .cell {
+                &:nth-child(2) {
+                    margin-left: 1.5px;
+                }
+
+                &:nth-child(3) {
+                    margin-left: 2px;
+                }
+
+                &:nth-child(4), &:nth-child(7) {
+                    margin: 2px 0 0 -.5px;
+                }
+
+                &:nth-child(5), &:nth-child(8) {
+                    margin: 2px 0 0 2px;
+                }
+
+                &:nth-child(6), &:nth-child(9) {
+                    margin: 2px 0 0 2.5px;
+                }
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 38px;
+                width: 38px;
+                cursor: pointer;
+            }
+        }
+
+        button, .score {
+            display: none;
+        }
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    #ticTacToeContainer {
+        left: 179px;
+    }
+}

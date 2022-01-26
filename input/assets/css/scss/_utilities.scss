@@ -1,0 +1,59 @@
+// Height & Width
+// In px
+@each $pixel, $value in $pixels {
+    .h-#{$pixel} {
+        height: $value !important;
+    }
+
+    .w-#{$pixel} {
+        width: $value !important;
+    }
+}
+
+// In percentages
+@each $percentage, $value in $percentages {
+    .h-#{$percentage} {
+        height: $value;
+    }
+
+    .w-#{$percentage} {
+        width: $value;
+    }
+}
+
+// In rem relating to spacer utility
+@each $spacer, $value in $spacers {
+    .h-#{$spacer} {
+        height: $value;
+    }
+
+    .w-#{$spacer} {
+        width: $value;
+    }
+}
+
+// z-index
+@each $z-index, $value in $z-indexes {
+    .z-index-#{$z-index} {
+        z-index: $value;
+    }
+}
+
+// Rotate
+@each $rotate, $value in $rotations {
+    .rotate-#{$rotate} {
+        transform: rotate($value);
+    }
+}
+
+// Cursors
+.cursor-pointer {
+    cursor: pointer;
+}
+
+// Positioning based on viewport
+@include media-breakpoint-up(md) {
+    .top-md-90-px {
+        top: 90px !important;
+    }
+}

@@ -1,0 +1,351 @@
+// FontAwesome Free
+$fa-font-path: "/assets/fonts/fontawesome-free";
+
+// Body & font
+$font-inter:                    'Inter', sans-serif;
+$font-game:                     'Press Start 2P', cursive;
+$font-handwriting:              'Satisfy', cursive;
+$font-family-sans-serif:        $font-inter;
+
+// Pink
+$pink-bubblegum:    #ff8ab7; // bubblegum, spunky
+$pink-petal:        #ff78cd; // moon
+$pink-icecream:     #d8988e; // synth
+
+// Red
+$red-cherry:        #ff014a; // bubblegum, spunky
+$red-rose:          #ff0125; // moon
+$red-sherbert:      #d66d5a; // synth
+
+// Orange
+$orange-potato:     #ff5100; // moon
+$orange-pumpkin:    #fe6d02; // bubblegum, spunky
+$orange-nut:        #e4a593; // synth
+
+// Yellow
+$yellow-flower:     #ffc931; // bubblegum, spunky
+$yellow-sun:        #ffd800; // moon
+$yellow-butter:     #d6b17a; //synth
+
+// Green
+$green-frog:        #b8fb91; // bubblegum, spunky
+$green-leaf:        #00be44; // moon
+$green-sage:        #647555; // synth
+
+// Cyan
+$cyan-book:         #5ce0c9; // bubblegum
+$cyan-icing:        #4bbaf2; // moon
+$cyan-table:        #0ecfe1; // spunky
+$cyan-lights:       #a5a48f; // synth
+
+// Blue
+$blue-fish:         #378be5; // moon
+$blue-sky:          #1482ff; // bubblegum, spunky
+$blue-nimbus:       #979ba6; // synth
+
+// Purple
+$purple-gem:        #557efe; // bubblegum, spunky
+$purple-troll:      #9761ff; // moon
+$purple-lilac:      #a3838e; // synth
+
+// White
+$white-marshmallow: #ffffff; // moon
+$white-newspaper:   #f0e9d7; // bubblegum, spunky
+$white-cream:       #e7d2b3; // synth
+
+// Gray
+$gray-rock:         #3e3e3e; // moon
+$gray-slate:        #717276; // bubblegum, spunky
+$gray-stone:        #262624; // spunky
+$gray-baby:         #a2a3a9; // synth
+
+// Black
+$black-jet:         #000000; // bubblegum, spunky, moon
+$black-coffee:      #2c231a; // synth
+
+// Social Media Colors
+$twitch:    #9147ff;
+$youtube:   #FF0000;
+$twitter:   #00aced;
+$linkedin:  #0073b1;
+$github:    #333333;
+$facebook:  #1877f2;
+$rss:       #fd7e14;
+$google:    #4285F4;
+$codepen:   #131417;
+
+// Theme names
+$bubblegum:         "bubblegum";
+$moon:              "moon";
+$spunky:            "spunky";
+$synth:             "synth";
+
+// Default theme
+$default-theme:     $bubblegum;
+
+// Theme map
+$themes: (
+    $bubblegum: (
+        "alpha":      $purple-gem,
+        "beta":       $pink-bubblegum,
+        "gamma":      $cyan-book,
+        "delta":      $red-cherry,
+        "epsilon":    $blue-sky,
+        "zeta":       $yellow-flower,
+        "pink":       $pink-bubblegum,
+        "red":        $red-cherry,
+        "orange":     $orange-pumpkin,
+        "yellow":     $yellow-flower,
+        "green":      $green-frog,
+        "cyan":       $cyan-book,
+        "blue":       $blue-sky,
+        "purple":     $purple-gem,
+        "gray":       $gray-slate,
+        "white":      $white-newspaper,
+        "black":      $black-jet,
+        "main":       $white-newspaper,
+        "opposite":   $black-jet
+    ),
+    $moon: (
+        "alpha":      $purple-troll,
+        "beta":       $yellow-sun,
+        "gamma":      $pink-petal,
+        "delta":      $blue-fish,
+        "epsilon":    $orange-potato,
+        "zeta":       $green-leaf,
+        "pink":       $pink-petal,
+        "red":        $red-rose,
+        "orange":     $orange-potato,
+        "yellow":     $yellow-sun,
+        "green":      $green-leaf,
+        "cyan":       $cyan-icing,
+        "blue":       $blue-fish,
+        "purple":     $purple-troll,
+        "gray":       $gray-rock,
+        "white":      $white-marshmallow,
+        "black":      $black-jet,
+        "main":       $black-jet,
+        "opposite":   $white-marshmallow
+    ),
+    $spunky: (
+        "alpha":      $red-cherry,
+        "beta":       $cyan-table,
+        "gamma":      $orange-pumpkin,
+        "delta":      $purple-gem,
+        "epsilon":    $green-frog,
+        "zeta":       $pink-bubblegum,
+        "pink":       $pink-bubblegum,
+        "red":        $red-cherry,
+        "orange":     $orange-pumpkin,
+        "yellow":     $yellow-flower,
+        "green":      $green-frog,
+        "cyan":       $cyan-table,
+        "blue":       $blue-sky,
+        "purple":     $purple-gem,
+        "gray":       $gray-stone,
+        "white":      $white-newspaper,
+        "black":      $black-jet,
+        "main":       $gray-stone,
+        "opposite":   $white-newspaper
+    ),
+    $synth: (
+        "alpha":      $red-sherbert,
+        "beta":       $blue-nimbus,
+        "gamma":      $green-sage,
+        "delta":      $purple-lilac,
+        "epsilon":    $cyan-lights,
+        "zeta":       $pink-icecream,
+        "pink":       $pink-icecream,
+        "red":        $red-sherbert,
+        "orange":     $orange-nut,
+        "yellow":     $yellow-butter,
+        "green":      $green-sage,
+        "cyan":       $cyan-lights,
+        "blue":       $blue-nimbus,
+        "purple":     $purple-lilac,
+        "gray":       $gray-baby,
+        "white":      $white-cream,
+        "black":      $black-coffee,
+        "main":       $white-cream,
+        "opposite":   $black-coffee
+    )
+);
+
+$socialmedia-colors: (
+  twitch:   $twitch,
+  youtube:  $youtube,
+  twitter:  $twitter,
+  linkedin: $linkedin,
+  github:   $github,
+  facebook: $facebook,
+  rss:      $rss,
+  google:   $google,
+  codepen:  $codepen
+);
+
+$percentages: (
+    "5-percent":    5%,
+    "10-percent":   10%,
+    "15-percent":   15%,
+    "20-percent":   20%,
+    "25-percent":   25%,
+    "30-percent":   30%,
+    "40-percent":   40%,
+    "50-percent":   50%,
+    "60-percent":   60%,
+    "70-percent":   70%,
+    "75-percent":   75%,
+    "80-percent":   80%,
+    "85-percent":   85%,
+    "90-percent":   90%,
+    "95-percent":   95%,
+    "97-5-percent":   97.5%,
+    "98-percent":   98%,
+    "100-percent":  100%,
+    "105-percent":  105%,
+    "110-percent":  110%
+);
+
+$pixels: (
+    "10-px":   10px,
+    "20-px":   20px,
+    "30-px":   30px,
+    "40-px":   40px,
+    "50-px":   50px,
+    "60-px":   60px,
+    "70-px":   70px,
+    "80-px":   80px,
+    "90-px":   90px,
+    "100-px":  100px,
+    "150-px":  150px,
+    "200-px":  200px,
+    "275-px":  275px
+);
+
+$z-indexes: (
+    "n-2":  -2,
+    "n-1":  -1,
+    "1":     1,
+    "2":     2,
+    "3":     3
+);
+
+$rotations: (
+    "10":   10deg,
+    "20":   20deg,
+    "45":   45deg,
+    "90":   90deg,
+    "145":  145deg,
+    "180":  180deg,
+    "360":  360deg
+);
+
+$fonts: (
+    "inter":        $font-inter,
+    "game":         $font-game,
+    "handwriting":  $font-handwriting
+);
+
+$text-shadow-weights: 1px, 2px, 3px;
+$text-shadows: (
+    "black":   $text-shadow-weights,
+    "white":   $text-shadow-weights
+);
+
+$display-font-sizes: (
+    1:  7rem,
+    2:  6.5rem,
+    3:  6rem,
+    4:  5.5rem,
+    5:  5rem,
+    6:  4.5rem,
+    7:  4rem,
+    8:  3.5rem,
+    9:  3rem,
+    10: 2.5rem,
+);
+
+$position-values: (
+    "n-1-5-rem": -1.5rem,
+    "n-2":     -2%,
+    "n-5":     -5%,
+    "n-6":     -6%,
+    "n-10":    -10%,
+    "n-45-px": -45px,
+    0:    0,
+    "0-5-rem": .5rem,
+    "1-rem": 1rem,
+    5:    5%,
+    10:   10%,
+    15:   15%,
+    20:   20%,
+    25:   25%,
+    30:   30%,
+    35:   35%,
+    36:   36%,
+    40:   40%,
+    45:   45%,
+    50:   50%,
+    55:   55%,
+    60:   60%,
+    65:   65%,
+    70:   70%,
+    75:   75%,
+    80:   80%,
+    85:   85%,
+    90:   90%,
+    95:   95%,
+    100:  100%
+);
+
+$spacer: 1rem;
+$spacers: (
+    0: 0,
+    1: $spacer * .25,
+    2: $spacer * .5,
+    3: $spacer,
+    4: $spacer * 1.5,
+    5: $spacer * 3,
+    6: $spacer * 6,
+    7: $spacer * 12,
+    8: $spacer * 20
+);
+
+// Global styling
+$enable-responsive-font-sizes:  true;
+$enable-shadows:                true;
+$variable-prefix:               sh-;
+
+// Dropdowns
+$dropdown-bg:                   var(--sh-main);
+$dropdown-link-hover-bg:        var(--#{$variable-prefix}alpha);
+$dropdown-link-hover-color:     var(--#{$variable-prefix}alpha-accessible);
+$dropdown-link-active-bg:       var(--#{$variable-prefix}alpha);
+$dropdown-link-active-color:    var(--#{$variable-prefix}alpha-accessible);
+
+// Margin
+$enable-negative-margins:       true;
+
+// Cards
+$card-border-radius:    0;
+$card-bg:               var(--sh-main);
+$card-border-width:     2px;
+$card-border-color:     var(--sh-opposite);
+
+// Buttons
+$btn-border-radius:     0;
+
+// Badges
+$badge-border-radius:   0;
+
+// Links
+$link-decoration:       none;
+
+// Embed Ratios
+$aspect-ratios: (
+    "1x1": 100%,
+    "4x3": calc(3 / 4 * 100%),
+    "16x9": calc(9 / 16 * 100%),
+    "21x9": calc(9 / 21 * 100%),
+    "1200x630": calc(630 / 1200 * 100%)
+);

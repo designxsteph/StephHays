@@ -1,0 +1,49 @@
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+@function customShift($color, $value, $shift) {
+    $diff: calc(lightness($value) + $shift);
+
+    @if ($diff >= 50) {
+        @return customDarken($color, $shift);
+    } @else {
+        @return customLighten($color, $shift);
+    }
+}
+
+@function customAccessibleColor($color, $value) {
+    @if (lightness($value) >= 35) {
+        @return var(--sh-black);
+    } @else {
+        @return var(--sh-white);
+    }
+}
+
+@function customAlpha($color, $shift) {
+    $color-h: var(#{$color + "-h"});
+    $color-s: var(#{$color + "-s"});
+    $color-l: var(#{$color + "-l"});
+    @return hsla($color-h, $color-s, $color-l, $shift);
+}
+
+@function customTextShadow($color, $weight) {
+    @return -#{$weight} -#{$weight} 0 $color, #{$weight} -#{$weight} 0 $color, -#{$weight} #{$weight} 0 $color, #{$weight} #{$weight} 0 $color;
+}
+
+@function customDarken($color, $shift) {
+    $color-h: var(#{$color + "-h"});
+    $color-s: var(#{$color + "-s"});
+    $color-l: calc(var(#{$color + "-l"}) - $shift);
+    @return hsl($color-h, $color-s, $color-l);
+}
+
+@function customLighten($color, $shift) {
+    $color-h: var(#{$color + "-h"});
+    $color-s: var(#{$color + "-s"});
+    $color-l: calc(var(#{$color + "-l"}) + $shift);
+    @return hsl($color-h, $color-s, $color-l);
+}

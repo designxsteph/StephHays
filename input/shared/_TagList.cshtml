@@ -1,0 +1,23 @@
+@{
+    IDocument[] archives = Outputs
+        .FromPipeline("Content")
+        .FilterSources("archive/*.md")
+        .ToArray();
+        
+    HashSet<string> tags = new HashSet<string>();
+
+    @foreach (IDocument archive in archives)
+    {
+        @foreach (var tag in archive.GetList<string>("Tags"))
+        {
+            tags.Add(@tag);
+        }
+    }
+}
+
+<ul class="list-unstyled list-inline mb-0">
+    @foreach (var tag in tags)
+    {
+        <li class="list-inline-item position-relative z-index-1 mb-2 me-1"><a class="badge btn btn-alpha" href='@Context.GetLink("/tags/")@tag'><span class="h6">#@tag</span></a></li>
+    }
+</ul>

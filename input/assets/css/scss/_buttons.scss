@@ -1,0 +1,33 @@
+@each $theme, $theme-names in $themes {
+    @each $color, $value in $theme-names {
+        .btn-#{$color} {
+            background-color: var(--#{$variable-prefix}#{$color});
+            color: var(--#{$variable-prefix}#{$color}-accessible);
+
+            &:focus, &:active, &.active, &:active:focus, &.active:focus {
+                outline: 0;
+                box-shadow: 0 0 0 $btn-focus-width customAlpha(--#{$variable-prefix}#{$color}, .25);
+            }
+
+            &:hover {
+                background-color: customShift(--#{$variable-prefix}#{$color}, $value, 5%);
+                color: var(--#{$variable-prefix}#{$color}-accessible);
+            }
+        }
+
+        .btn-outline-#{$color} {
+            color: var(--#{$variable-prefix}#{$color});
+            border-color: var(--#{$variable-prefix}#{$color});
+
+            &:focus, &:active, &.active, &:active:focus, &.active:focus {
+                outline: 0;
+                box-shadow: 0 0 0 $btn-focus-width customAlpha(--#{$variable-prefix}#{$color}, .25);
+            }
+
+            &:focus, &:active, &.active, &:active:focus, &.active:focus, &:hover {
+                background-color: var(--#{$variable-prefix}#{$color});
+                color: var(--#{$variable-prefix}#{$color}-accessible);
+            }
+        }
+    }
+}

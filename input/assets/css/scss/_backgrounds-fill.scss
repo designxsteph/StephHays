@@ -1,0 +1,24 @@
+@each $theme, $theme-names in $themes {
+    @each $color, $value in $theme-names {
+        .bg-#{$color} {
+            background-color: var(--#{$variable-prefix}#{$color}) !important;
+            color: var(--#{$variable-prefix}#{$color}-accessible);
+        }
+
+        .fill-#{$color} {
+            fill: var(--#{$variable-prefix}#{$color});
+        }
+    }
+}
+
+.diagnol-bottom-top div {
+    background: linear-gradient(to top left, transparent calc(50% - 1px), var(--sh-opposite), transparent calc(50% + 1px));
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.diagnol-top-bottom div {
+    background: linear-gradient(to top right, transparent calc(50% - 1px), var(--sh-opposite), transparent calc(50% + 1px));
+    height: 1.5rem;
+    width: 1.5rem;
+}
