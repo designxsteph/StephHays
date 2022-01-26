@@ -1,0 +1,70 @@
+@model IDocument;
+
+@{
+    var destinationLink = Model.Keys.Contains("ExternalLink") ? Model.GetString("ExternalLink") : Model.GetLink();
+    var typeIcon = "";
+
+    switch(Model.GetString("Type")) 
+    {
+        case "blog":
+            typeIcon = "fas fa-book-open";
+            break;
+        case "code":
+            typeIcon = "fas fa-code";
+            break;
+        case "project":
+            typeIcon = "fas fa-tools";
+            break;
+    }
+}
+
+<div class="col-md-4 mb-4">
+    <div class="card bg-transparent h-100-percent p-0 border-0 overflow-hidden">
+        <a href="@destinationLink">
+            @if (Model.Keys.Contains("VideoListing")) {
+                <div class="ratio ratio-1200x630 border-opposite overflow-hidden">
+                    <video class="lazy" width="1200" height="630" autoplay muted loop playsinline>
+                        <source data-src='/assets/images/social-share/@Model.GetString("VideoListing")' type="video/mp4">
+                        @Model.GetTitle()
+                    </video>
+                </div>
+            } else {
+                <img class="border-opposite" src='/assets/images/social-share/@Model.GetString("ImageListing")' loading="lazy" onerror="this.src='https://picsum.photos/1200/630';" alt="@Model.GetTitle()">
+            }
+        </a>
+        <div class='type-flyout type-flyout-@Model.GetString("Type") bg-alpha position-absolute top-0 d-flex align-items-center'>
+            <a class="link-black d-flex" href='@Context.GetLink(Model.GetString("Type"))'>
+                <span class="type-flyout-icon d-flex align-items-center justify-content-center"><i class="@typeIcon"></i></span>
+                <span class="type-flyout-text"><span class="text-capitalize">@Model.GetString("Type")</span></span>
+            </a>
+        </div>
+        <div class="border-2-px border-opposite border-top-0 h-100-percent d-flex flex-column mx-4 position-relative z-index-1">
+            <div class="position-absolute top-0 start-n-1-5-rem">
+                <div class="diagnol-top-bottom">
+                    <div></div>
+                </div>
+            </div>
+            <div class="position-absolute top-0 end-n-1-5-rem">
+                <div class="d-flex diagnol-bottom-top">
+                    <div></div>
+                </div>
+            </div>
+            <div class="card-body bg-main">
+                <p class="small text-capitalize">@Model.GetDateTime(WebKeys.Published).ToString("dd MMMM yyyy")</p>
+                <div class="h5 mb-0"><a class="d-block animate-shake-x" href="@destinationLink"><span class="me-3">@Model.GetTitle()</span><i class="fas fa-circle-arrow-right"></i></a></div>
+                @if (Model.Keys.Contains("Subtitle")) {
+                    <p class="mb-0">@Model.GetString("Subtitle")</p>
+                }
+                <p class="mb-0 mt-3 small">@Model.GetString(Keys.Excerpt)</p>
+            </div>
+            <div class="card-footer bg-main position-relative z-index-2 border-0 bg-transparent pt-0">
+                <ul class="list-unstyled list-inline mb-0">
+                    @foreach (var tag in Model.GetList<string>("Tags"))
+                    {
+                        <li class="list-inline-item position-relative z-index-1 mb-2 me-1"><a class="badge btn btn-alpha" href="@Context.GetLink("/tags/")@tag"><span>#@tag</span></a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

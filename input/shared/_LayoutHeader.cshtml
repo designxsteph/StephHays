@@ -1,0 +1,20 @@
+<header class="bg-alpha position-relative z-index-2">
+    <nav class="container-fluid position-relative z-index-1 py-3">
+        <ul class="list-main-nav list-inline text-center d-flex align-items-center justify-content-center position-relative mb-0">
+            @Html.Partial("_LayoutMainNavItems")
+            <li class="list-inline-item position-absolute top-50 end-0 translate-middle-y">
+                <div class="btn-group">
+                    <button id="themeSelectorDropdown" type="button" class="btn btn-sm btn-beta dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-paint-roller"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><button class="dropdown-item theme-selector" type="button" data-sh-theme="bubblegum">Bubblegum</button></li>
+                        <li><button class="dropdown-item theme-selector active" type="button" data-sh-theme="moon" aria-current="true">Moon</button></li>
+                        <li><button class="dropdown-item theme-selector" type="button" data-sh-theme="spunky">Spunky</button></li>
+                        <li><button class="dropdown-item theme-selector" type="button" data-sh-theme="synth">Synth</button></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</header>

@@ -1,0 +1,22 @@
+#draggableContainer {
+    touch-action: none;
+
+    .draggable {
+        cursor: grab;
+        touch-action: none;
+        user-select: none;
+        transition: 1s;
+
+        &.dragging {
+            cursor: grabbing;
+            transition: none;
+        }
+
+        &.random {
+            animation-name: shakeX;
+            animation-duration: .5s;
+            animation-delay: .2s;
+            animation-iteration-count: 1;
+        }
+    }
+}

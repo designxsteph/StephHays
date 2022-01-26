@@ -1,0 +1,37 @@
+<head>
+    @{
+        string title = Document.ContainsKey(Keys.Title) ? $"Steph Hays | {Document.GetString(Keys.Title)}" : "Steph Hays";
+        string description = Document.ContainsKey(Keys.Excerpt) ? Document.GetString(Keys.Excerpt) : "This place is my personal code playground and mostly concentrates on recent experiements, projects, and blog ramblings about my journeys of web development and my life with 2 crazy kids.";
+        string ogImage = Document.ContainsKey("OgImage") ? Document.GetString("OgImage") : "stephhays-dev-og.png";
+        string baseUrl = Context.GetLink().TrimEnd('/');
+    }
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="@description" />
+    @* Open Graph data *@
+    <meta property="og:title" content="@title" />
+    <meta property="og:description" content="@description" />
+    <meta property="og:image" content='@baseUrl/assets/images/social-share/@ogImage' />
+    <meta property="og:site_name" content="Steph Hays" />
+    <meta property="og:type" content="blog" />
+    <meta property="og:url" content="@baseUrl@Document.GetLink()" />
+    @* Twitter Card data *@
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@@st3phhays">
+    <meta name="twitter:creator" content="@@st3phhays">
+    @* Apple Touch and Favicons *@
+    <link rel="icon" type="image/png" sizes="16x16" href='@Context.GetLink("/favicon-16x16.png")'>
+    <link rel="icon" type="image/png" sizes="32x32" href='@Context.GetLink("/favicon-32x32.png")'>
+    <link rel="icon" type="image/png" sizes="96x96" href='@Context.GetLink("/favicon-96x96.png")'>
+    <link rel="apple-touch-icon" href='@Context.GetLink("/apple-touch-icon.png")' />
+    <link rel="apple-touch-icon" sizes="152x152" href='@Context.GetLink("/apple-touch-icon-152x152.png")' />
+    <link rel="apple-touch-icon" sizes="167x167" href='@Context.GetLink("/apple-touch-icon-167x167.png")' />
+    <link rel="apple-touch-icon" sizes="180x180" href='@Context.GetLink("/apple-touch-icon-180x180.png")' />
+    <link rel="manifest" href="/site.webmanifest">
+    <title>@title</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Press+Start+2P&family=Satisfy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href='@Context.GetLink("/assets/css/stephhays.bundle.min.css")'>
+    <script type="text/javascript" src='@Context.GetLink("/assets/js/stephhays.head.bundle.min.js")'></script>
+</head>

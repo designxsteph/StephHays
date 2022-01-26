@@ -1,0 +1,78 @@
+a {
+    color: var(--#{$variable-prefix}alpha);
+
+    &:focus, &:hover {
+        color: customDarken(--#{$variable-prefix}alpha, 10%);
+    }
+}
+
+.link-underline, .link-underline-container a,
+.link-underline-hover, .link-underline-hover-container a {
+    position: relative;
+    padding-bottom: 2px;
+
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        transform: scaleX(0);
+        transform-origin: bottom left;
+        transition: transform 0.3s;
+    }
+
+    &:hover {
+        &:after {
+            transform: scaleX(1);
+        }
+    }
+
+}
+
+@each $theme, $theme-names in $themes {
+    @each $color, $value in $theme-names {
+        .text-#{$color} {
+            color: var(--#{$variable-prefix}#{$color}) !important;
+        }
+
+        .link-#{$color},
+        .link-underline-#{$color}, .link-underline-#{$color}-container a,
+        .link-underline-hover-#{$color}, .link-underline-hover-#{$color}-container a {
+            color: var(--#{$variable-prefix}#{$color});
+
+            &:focus, &:hover {
+                color: customShift(--#{$variable-prefix}#{$color}, $value, 10%);
+            }
+        }
+
+        .link-underline-#{$color}, .link-underline-#{$color}-container a {
+            border-bottom: 2px dotted var(--#{$variable-prefix}#{$color});
+        
+            &:after {
+                background-color: customShift(--#{$variable-prefix}#{$color}, $value, 10%);
+            }
+        }
+
+        .link-underline-hover-#{$color}, .link-underline-hover-#{$color}-container a {
+            &:after {
+                border-bottom: 2px dotted customShift(--#{$variable-prefix}#{$color}, $value, 10%);
+            }
+        }
+    }
+}
+
+@each $font, $value in $fonts {
+    .font-#{$font} {
+        font-family: $value;
+    }
+}
+
+@each $text-shadow, $value in $text-shadows {
+    @each $text-shadow-weight in $value {
+        .text-shadow-#{$text-shadow}-#{$text-shadow-weight} {
+            text-shadow: customTextShadow(var(--#{$variable-prefix}#{$text-shadow}), $text-shadow-weight)
+        }
+    }
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" data-sh-theme="moon">
+@Html.Partial("_LayoutHead")
+<body class='@(Document.Keys.Contains("CenteredLayout") ? "bg-alpha" : "")'>
+    @Html.Partial("_LayoutBodyOpening")
+    <main role="main" class='@(Document.Keys.Contains("CenteredLayout") ? "mt-md-auto" : "")'>
+        @RenderBody()
+        <section id="connect" class='collapse bg-alpha position-relative @(Document.GetString(Keys.Title).Equals("Home") ? "show" : "")'>
+            <div id="draggableContainer" class="container-lg py-6">
+                <div class="row">
+                    <div class="col-md-8 mx-auto">
+                        @Html.Partial("_Connect")
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    @Html.Partial("_LayoutFooter")
+</body>
+</html>

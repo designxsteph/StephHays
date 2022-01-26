@@ -1,0 +1,61 @@
+.animate-shake-x {
+    &:hover .fas {
+        opacity: 1;
+        visibility: visible;
+        animation-name: shakeX;
+        animation-duration: .5s;
+        animation-delay: .2s;
+        animation-iteration-count: 1;
+    }
+
+    .fas {
+        opacity: 0;
+        visibility: hidden;
+        transition: visibility 0s, opacity 0.2s linear;
+    }
+}
+
+.type-flyout {
+    height: 30px;
+    transition: .25s linear;
+
+    &.type-flyout-code {
+        right: -55px;
+
+        .type-flyout-text {
+            width: 55px;
+        }
+    }
+
+    &.type-flyout-blog {
+        right: -47px;
+
+        .type-flyout-text {
+            width: 47px;
+        }
+    }
+
+    &:hover {
+        right: 0;
+    }
+
+    .type-flyout-icon {
+        width: 50px;
+    }
+}
+
+@keyframes shakeX {
+    from,
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+  
+    25%,
+    75% {
+        transform: translate3d(5px, 0, 0);
+    }
+  
+    50% {
+        transform: translate3d(-5px, 0, 0);
+    }
+}

@@ -1,0 +1,13 @@
+.list-main-nav {
+    a {
+        font-size: .8rem;
+    }
+}
+
+@include media-breakpoint-up(sm) {
+    .list-main-nav {
+        a {
+            font-size: 1rem;
+        }
+    }
+}
