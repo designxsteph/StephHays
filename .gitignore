@@ -9,8 +9,6 @@ obj/
 publish/
 node_modules/
 cache/
-apple-touch-*.png
-favicon.ico
 .pnp.*
 .yarn/*
 !.yarn/patches
