@@ -2,6 +2,7 @@
 
 @{
     var destinationLink = Model.Keys.Contains("ExternalLink") ? Model.GetString("ExternalLink") : Model.GetLink();
+    var destinationLinkAttributes = Model.Keys.Contains("ExternalLink") ? "rel=noreferrer" : "";
     var typeIcon = "";
 
     switch(Model.GetString("Type")) 
@@ -20,7 +21,7 @@
 
 <div class="col-md-4 mb-4">
     <div class="card bg-transparent h-100-percent p-0 border-0 overflow-hidden">
-        <a href="@destinationLink" title='Navigate to post "@Model.GetTitle()@(Model.Keys.Contains("Subtitle") ? " - " + Model.GetString("Subtitle") : "")"'>
+        <a href="@destinationLink" title='Navigate to post "@Model.GetTitle()@(Model.Keys.Contains("Subtitle") ? " - " + Model.GetString("Subtitle") : "")"' @destinationLinkAttributes>
             @if (Model.Keys.Contains("VideoListing")) {
                 <div class="ratio ratio-1200x630 border-opposite overflow-hidden">
                     <video class="lazy" width="1200" height="630" autoplay muted loop playsinline>
@@ -33,7 +34,7 @@
             }
         </a>
         <div class='type-flyout type-flyout-@Model.GetString("Type") bg-alpha position-absolute top-0 d-flex align-items-center'>
-            <a class="link-black d-flex" href='@Context.GetLink(Model.GetString("Type"))'>
+            <a class="link-black d-flex" href='@Context.GetLink(Model.GetString("Type"))' @destinationLinkAttributes>
                 <span class="type-flyout-icon d-flex align-items-center justify-content-center"><i class="@typeIcon"></i></span>
                 <span class="type-flyout-text"><span class="text-capitalize">@Model.GetString("Type")</span></span>
             </a>
