@@ -20,7 +20,7 @@
 
 <div class="col-md-4 mb-4">
     <div class="card bg-transparent h-100-percent p-0 border-0 overflow-hidden">
-        <a href="@destinationLink">
+        <a href="@destinationLink" title='Navigate to post "@Model.GetTitle()@(Model.Keys.Contains("Subtitle") ? " - " + Model.GetString("Subtitle") : "")"'>
             @if (Model.Keys.Contains("VideoListing")) {
                 <div class="ratio ratio-1200x630 border-opposite overflow-hidden">
                     <video class="lazy" width="1200" height="630" autoplay muted loop playsinline>
