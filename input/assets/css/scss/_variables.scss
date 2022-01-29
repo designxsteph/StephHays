@@ -341,6 +341,20 @@ $badge-border-radius:   0;
 // Links
 $link-decoration:       none;
 
+// List group
+$list-group-border-radius:          0;
+$list-group-color:                  var(--sh-main-accessible);
+$list-group-action-color:           var(--sh-main-accessible);
+$list-group-action-hover-color:     var(--sh-alpha);
+$list-group-action-active-color:    var(--sh-alpha);
+$list-group-action-active-bg:       var(--sh-main);
+$list-group-bg:                     var(--sh-main);
+$list-group-hover-bg:               var(--sh-main);
+$list-group-active-bg:              var(--sh-main);
+$list-group-active-color:           var(--sh-main-accessible);
+$list-group-border-color:           customAlpha(--sh-opposite, 20%);
+$list-group-active-border-color:    customAlpha(--sh-opposite, 20%);
+
 // Embed Ratios
 $aspect-ratios: (
     "1x1": 100%,

@@ -1,5 +1,5 @@
 @{
-    string title = @Document.ContainsKey(Keys.Title) ? $"Steph Hays | {Document.GetString(Keys.Title)}" : "Steph Hays";
+    string title = Document.Keys.Contains("Subtitle") ? "Steph Hays | " + @Model.GetTitle() + (Model.Keys.Contains("Subtitle") ? " - " + Model.GetString("Subtitle") : "") : "Steph Hays | " + Document.GetString(Keys.Title);
     string shareUrl = @Context.GetLink().TrimEnd('/') + Document.GetLink();
 }
 <!DOCTYPE html>
@@ -20,8 +20,12 @@
                                     <div class="card text-opposite position-relative">
                                         @Html.Partial("~/shared/_HeaderCard.cshtml")
                                         <div class="m-4 position-relative border border-opposite p-5">
-                                            <span class="text-capitalize">@Model.GetDateTime(WebKeys.Published).ToString("dd MMMM yyyy")</span>
-                                            <h1 class="mt-2 mb-0">@Document.GetString("Title")</h1>
+                                            <p class="text-capitalize">@Model.GetDateTime(WebKeys.Published).ToString("dd MMMM yyyy")</p>
+                                            @if (Document.Keys.Contains("Series"))
+                                            {
+                                                <a class="fw-bold link-alpha h4 d-block mb-0" href='@Context.GetLink("/series/" + @Document.GetList<string>("SeriesDestinationPath").First())'>Series: @Document.GetString("Series")</a>
+                                            }
+                                            <h1 class="mb-0">@Document.GetString("Title")</h1>
                                             @if (Model.Keys.Contains("Subtitle")) {
                                                 <p class="h3 mb-0">@Model.GetString("Subtitle")</p>
                                             }
@@ -38,7 +42,7 @@
                                                     </a>
                                                 </li>
                                                 <li class="position-relative me-0 mb-2">
-                                                    <a class="icon icon-sm icon-circle icon-blip icon-blip-twitter" href='https://twitter.com/intent/tweet?text=@Document.GetString("Title")&url=@shareUrl' title="Share on Twitter" target="_blank">
+                                                    <a class="icon icon-sm icon-circle icon-blip icon-blip-twitter" href='https://twitter.com/intent/tweet?text=@title&url=@shareUrl' title="Share on Twitter" target="_blank">
                                                         <i class="fa-brands fa-twitter"></i>
                                                     </a>
                                                 </li>
@@ -61,8 +65,12 @@
             <div class="container-lg">
                 <div class="row ">
                     <div class="col-lg-8 mx-auto p-0">
-                        <div class="link-underline-container link-underline-alpha-container card card-body border-top-0 text-opposite pt-6 p-md-5">
-                            @RenderBody()
+                        <div class="card card-body border-top-0 pt-6 p-md-5">
+                            @Html.Partial("~/shared/_SeriesList.cshtml")
+                            <div class="link-underline-container link-underline-alpha-container text-opposite my-4">
+                                @RenderBody()
+                            </div>
+                            @Html.Partial("~/shared/_SeriesList.cshtml")
                         </div>
                     </div>
                 </div>

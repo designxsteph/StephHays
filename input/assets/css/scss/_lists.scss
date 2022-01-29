@@ -1,0 +1,15 @@
+// List group
+.card > .list-group {
+	border-top: none;
+	border-bottom: none;
+}
+
+// Series list
+.series-list-group {
+	counter-reset: section;
+
+	.series-counter:before {
+		counter-increment: section;
+		content: counter(section);
+	}
+}
