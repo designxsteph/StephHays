@@ -1,0 +1,52 @@
+$animation-timing: 0.3s;
+$animation-ease: ease-in-out;
+$animation-ease-bounce: cubic-bezier(0.175,  0.885, 0.320, 1.275);
+
+.card-stacked {
+    border: none !important;
+    position: relative;
+    transition: transform $animation-timing $animation-ease;
+    will-change: transform;
+
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border: 1px solid var(--sh-opposite);
+        transition: transform $animation-timing $animation-ease;
+        will-change: transform;
+    }
+
+    &:before {
+        z-index: -1;
+        background-color: var(--sh-beta);
+    }
+
+    &:after {
+        z-index: -2;
+        background-color: var(--sh-zeta);
+    }
+
+    &.stacked-up-right {
+        &:hover {
+            transform: translate(5px, -5px);
+            
+            &:before {
+                transform: translate(-5px, 5px);
+            }
+
+            &:after {
+                transform: translate(-10px, 10px);
+            }
+        }
+    }
+
+    .card-body {
+        background-color: var(--sh-main);
+        border: 2px solid var(--sh-opposite);
+    }
+}

@@ -1,0 +1,89 @@
+ArchiveSources: archive/*.md
+ArchiveKey: SeriesDestinationPath
+ArchiveOrder: => GetDateTime("Published")
+ArchiveOrderDescending: true
+---
+
+@if (Model.ContainsKey(Keys.GroupKey))
+{
+    <section class="position-relative bg-alpha">
+        @Html.Partial("~/shared/_HeaderBackgroundOne.cshtml")
+        <div class="container-lg position-relative px-0 py-6">
+            <div class="row g-0">
+                <div class="col-md-8 mx-auto">
+                    <div class="position-relative mx-4">
+                        <div class="card position-absolute h-100-percent w-100-percent bg-delta ms-n3 mt-3"></div>
+                        <div class="card text-opposite position-relative">
+                            @Html.Partial("~/shared/_HeaderCard.cshtml")
+                            <div class="m-4 position-relative border border-opposite p-5">
+                                <h1>Series: @Model.GetChildren().Last().GetString("Series")</h1>
+                                <p class="fs-5 mb-0">@Model.GetChildren().Last().GetString("SeriesExcerpt")</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        @Html.Partial("~/shared/_PostListings.cshtml")
+    </section>
+}
+else
+{
+    <section class="position-relative bg-alpha">
+        @Html.Partial("~/shared/_HeaderBackgroundOne.cshtml")
+        <div class="container-lg position-relative px-0 py-6">
+            <div class="row g-0">
+                <div class="col-md-8 mx-auto">
+                    <div class="position-relative mx-4">
+                        <div class="card position-absolute h-100-percent w-100-percent bg-delta ms-n3 mt-3"></div>
+                        <div class="card text-opposite position-relative">
+                            @Html.Partial("~/shared/_HeaderCard.cshtml")
+                            <div class="m-4 position-relative border border-opposite p-5">
+                                <h1>Series</h1>
+                                <p class="fs-5 mb-0">Blog and code experiment collections.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container-lg py-6">
+            <h3 class="mb-4">Series</h3>
+            <div class="row">
+                @{
+                    IDocument[] archives = Outputs
+                        .FromPipeline("Content")
+                        .FilterSources("archive/*.md")
+                        .Where(archive => archive.Keys.Contains("Series"))
+                        .ToArray();
+
+                    var groupedSeries = archives.GroupBy(
+                        archive => archive.GetString("Series"),
+                        archive => archive.GetList<string>("SeriesDestinationPath").First(),
+                        (title, seriesDestinationPath) => new
+                        {
+                            Title = title,
+                            SeriesDestinationPath =  Context.GetLink("/series/" + seriesDestinationPath.First()),
+                            Count = seriesDestinationPath.Count()
+                        });
+                }
+
+                @foreach (var series in groupedSeries)
+                {
+                    <div class="col-md-4 mb-4">
+                        <div class="card card-stacked stacked-up-right">
+                            <div class="card-body">
+                                <p class="small">@series.Count Part Series</p>
+                                <div class="h5 mb-0"><a class="d-block animate-shake-x stretched-link" href="@series.SeriesDestinationPath"><span class="me-3">@series.Title</span><i class="fas fa-circle-arrow-right"></i></a></div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+}

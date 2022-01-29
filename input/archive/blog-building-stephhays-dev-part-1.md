@@ -1,15 +1,17 @@
-Title: Building stephhays.dev
-Subtitle: "Part 1: So Much Room for Activities!"
+Title: So Much Room for Activities!
+Series: Building stephhays.dev
+SeriesExcerpt: A series about my experience building stephhays.dev and what I've learned in the process.
+SeriesDestinationPath:
+- building-stephhays-dev
 Type: blog
 Published: 2021-12-15
 Excerpt: Hello World. I feel like a n00b.
 Tags:
 - 2021
-- building-stephhays.dev
-- series
+- brainstorming
 ImageListing: blog-building-stephhays-dev-part-1.png
 OgImage: blog-building-stephhays-dev-part-1-og.png
-DestinationPath: blog/building-stephhays-dev-part-1.html
+DestinationPath: blog/so-much-room-for-activities.html
 ---
 
 <p class="lead">Nothing is more exciting and... intimidating... than the blank "Hello World" screen. Basically, this is what comes to mind:</p>

@@ -1,0 +1,30 @@
+@if (Document.Keys.Contains("Series")) {
+    <div class="series-list-group list-group">
+        <div class="list-group-item">
+            @{
+                var seriesLink = "/series/" + @Document.GetString("SeriesDestinationPath");
+            }
+            <a class="fw-bold lead" href='@Context.GetLink(@seriesLink)'>@Document.GetString("Series")</a>
+        </div>
+        @{
+            IDocument[] archives = Outputs
+                .FromPipeline("Content")
+                .FilterSources("archive/*.md")
+                .Where(archive => archive.GetString("Series") == Document.GetString("Series"))
+                .ToArray();
+        }
+        @foreach (var archive in archives)
+        {
+            var activeClass = archive.GetString("Title") == Document.GetString("Title") ? "active" : "";
+            var activeAttr = archive.GetString("Title") == Document.GetString("Title") ? "true" : "";
+            var path = archive.GetString("DestinationPath").Remove(archive.GetString("DestinationPath").Length - 5);
+
+            <a href='@Context.GetLink(@path)' class="list-group-item list-group-item-action @activeClass" aria-current="@activeAttr">
+                <div class="d-flex align-items-center">
+                    <div class='series-counter icon icon-md icon-circle me-2 @(activeAttr == "true" ? "bg-alpha border-alpha fw-bold" : "bg-main border-main-accessible")'></div>
+                    <span class='@(activeAttr == "true" ? "fw-bold" : "")'>@archive.GetString("Title")</span>
+                </div>
+            </a>
+        }
+    </div>
+}

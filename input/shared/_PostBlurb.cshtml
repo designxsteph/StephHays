@@ -3,6 +3,7 @@
 @{
     var destinationLink = Model.Keys.Contains("ExternalLink") ? Model.GetString("ExternalLink") : Model.GetLink();
     var destinationLinkAttributes = Model.Keys.Contains("ExternalLink") ? "rel=noreferrer" : "";
+    var title = (Model.Keys.Contains("Series") ? Model.GetString("Series") + " - " : "") + Model.GetString("Title");
     var typeIcon = "";
 
     switch(Model.GetString("Type")) 
@@ -21,16 +22,16 @@
 
 <div class="col-md-4 mb-4">
     <div class="card bg-transparent h-100-percent p-0 border-0 overflow-hidden">
-        <a href="@destinationLink" title='Navigate to post "@Model.GetTitle()@(Model.Keys.Contains("Subtitle") ? " - " + Model.GetString("Subtitle") : "")"' @destinationLinkAttributes>
+        <a href="@destinationLink" title='Navigate to post "@title"' @destinationLinkAttributes>
             @if (Model.Keys.Contains("VideoListing")) {
                 <div class="ratio ratio-1200x630 border-opposite overflow-hidden">
                     <video class="lazy" width="1200" height="630" autoplay muted loop playsinline>
                         <source data-src='/assets/images/social-share/@Model.GetString("VideoListing")' type="video/mp4">
-                        @Model.GetTitle()
+                        @title
                     </video>
                 </div>
             } else {
-                <img class="border-opposite" src='/assets/images/social-share/@Model.GetString("ImageListing")' loading="lazy" onerror="this.src='https://picsum.photos/1200/630';" width="750" height="394" alt="@Model.GetTitle()">
+                <img class="border-opposite" src='/assets/images/social-share/@Model.GetString("ImageListing")' loading="lazy" onerror="this.src='https://picsum.photos/1200/630';" width="750" height="394" alt="@title">
             }
         </a>
         <div class='type-flyout type-flyout-@Model.GetString("Type") bg-alpha position-absolute top-0 d-flex align-items-center'>
@@ -52,10 +53,11 @@
             </div>
             <div class="card-body bg-main">
                 <p class="small text-capitalize">@Model.GetDateTime(WebKeys.Published).ToString("dd MMMM yyyy")</p>
-                <div class="h5 mb-0"><a class="d-block animate-shake-x" href="@destinationLink"><span class="me-3">@Model.GetTitle()</span><i class="fas fa-circle-arrow-right"></i></a></div>
-                @if (Model.Keys.Contains("Subtitle")) {
-                    <p class="mb-0">@Model.GetString("Subtitle")</p>
+                @if (Model.Keys.Contains("Series"))
+                {
+                    <a class="fw-bold link-beta small" href='@Context.GetLink("/series/" + @Model.GetList<string>("SeriesDestinationPath").First())'>Series: @Model.GetString("Series")</a>
                 }
+                <div class="h5 mb-0"><a class="d-block animate-shake-x" href="@destinationLink"><span class="me-3">@Model.GetString("Title")</span><i class="fas fa-circle-arrow-right"></i></a></div> 
                 <p class="mb-0 mt-3 small">@Model.GetString(Keys.Excerpt)</p>
             </div>
             <div class="card-footer bg-main position-relative z-index-2 border-0 bg-transparent pt-0">
