@@ -16,7 +16,7 @@ DestinationPath: blog/so-much-room-for-activities.html
 
 <p class="lead">Nothing is more exciting and... intimidating... than the blank "Hello World" screen. Basically, this is what comes to mind:</p>
 
-<div style="width:100%;height:0;padding-bottom:41%;position:relative;"><iframe src="https://giphy.com/embed/yrFrXTTTcHIY0" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/yrFrXTTTcHIY0">via GIPHY</a></p>
+<div style="width:100%;height:0;padding-bottom:41%;position:relative;"><iframe src="https://giphy.com/embed/yrFrXTTTcHIY0" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" title="GIF of Step Brothers movie" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/yrFrXTTTcHIY0">via GIPHY</a></p>
 
 ## <?#= Excerpt /?>..
 Going into building stephhays.dev, I know of the end goals I want to accomplish but not necessarily <i>how</i> to get there. To be honest, it's been years since I've created a website on my own from start to finish. On top of that, technology and my skills have come so far, I'm really starting from complete scratch here. I can't help but feel like such a nOOb (as my 7-year-old son would say).
