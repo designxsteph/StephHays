@@ -1,83 +1,83 @@
 @{
-    string title = @Document.ContainsKey(Keys.Title) ? $"Steph Hays | {Document.GetString(Keys.Title)}" : "Steph Hays";
+    Layout = "_LayoutBase.cshtml";
+    string title = Document.Keys.Contains(Keys.Title) ? "Steph Hays | " + (Document.Keys.Contains("Series") ? Document.GetString("Series") + " - " : "") + Document.GetString(Keys.Title) : "Steph Hays";
     string shareUrl = @Context.GetLink().TrimEnd('/') + Document.GetLink();
 }
-<!DOCTYPE html>
-<html lang="en" data-sh-theme="bubblegum">
-@Html.Partial("~/shared/_LayoutHead.cshtml")
-<body class="bg-alpha">
-    @Html.Partial("~/shared/_LayoutBodyOpening.cshtml")
-    <main role="main">
-        <section class="position-relative z-index-1">
-            <div class="container-lg p-0">
+@section ExtraHeaders
+{
+    @RenderSection("ExtraHeaders", required: false)
+}
+<section class="position-relative z-index-1">
+    <div class="container-lg p-0">
+        <div class="row g-0">
+            <div class="col-lg-10 mx-auto position-relative">
+                @Html.Partial("~/shared/_HeaderBackgroundThree.cshtml")
                 <div class="row g-0">
-                    <div class="col-lg-10 mx-auto position-relative">
-                        @Html.Partial("~/shared/_HeaderBackgroundThree.cshtml")
-                        <div class="row g-0">
-                            <div class="col-md-8 mx-auto py-6">
-                                <div class="position-relative mx-4">
-                                    <div class="card position-absolute h-100-percent w-100-percent bg-epsilon ms-n3 mt-3"></div>
-                                    <div class="card text-opposite position-relative">
-                                        @Html.Partial("~/shared/_HeaderCard.cshtml")
-                                        <div class="m-4 position-relative border border-opposite p-5">
-                                            <span class="text-capitalize">@Model.GetDateTime(WebKeys.Published).ToString("dd MMMM yyyy")</span>
-                                            <h1 class="mt-2 mb-0">@Document.GetString("Title")</h1>
-                                            @if (Model.Keys.Contains("Subtitle")) {
-                                                <p class="h3 mb-0">@Model.GetString("Subtitle")</p>
-                                            }
-                                            <ul class="list-unstyled list-inline mb-0 mt-3">
-                                                @foreach (var tag in Document.GetList<string>("Tags"))
-                                                {
-                                                    <li class="list-inline-item position-relative z-index-1 mb-2 me-1"><a class="badge btn btn-alpha" href="@Context.GetLink("/tags/")@tag"><span>#@tag</span></a></li>
-                                                }
-                                            </ul>
-                                            <ul class="list-unstyled mb-0 mt-2 me-2 text-center position-absolute top-0 end-0">
-                                                <li class="position-relative me-0 mb-2">
-                                                    <a class="icon icon-sm icon-circle icon-blip icon-blip-linkedin" href="https://www.facebook.com/sharer/sharer.php?u=@shareUrl" title="Share on LinkedIn" target="_blank">
-                                                        <i class="fa-brands fa-linkedin-in"></i>
-                                                    </a>
-                                                </li>
-                                                <li class="position-relative me-0 mb-2">
-                                                    <a class="icon icon-sm icon-circle icon-blip icon-blip-twitter" href='https://twitter.com/intent/tweet?text=@Document.GetString("Title")&url=@shareUrl' title="Share on Twitter" target="_blank">
-                                                        <i class="fa-brands fa-twitter"></i>
-                                                    </a>
-                                                </li>
-                                                <li class="position-relative me-0">
-                                                    <a class="icon icon-sm icon-circle icon-blip icon-blip-facebook" href='https://www.facebook.com/sharer/sharer.php?u=@shareUrl' title="Share on Facebook" target="_blank">
-                                                        <i class="fa-brands fa-facebook-f"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                    <div class="col-md-8 mx-auto py-6">
+                        <div class="position-relative mx-4">
+                            <div class="card position-absolute h-100-percent w-100-percent bg-epsilon ms-n3 mt-3"></div>
+                            <div class="card text-opposite position-relative">
+                                @Html.Partial("~/shared/_HeaderCard.cshtml")
+                                <div class="m-4 position-relative border border-opposite p-5">
+                                    <p class="text-capitalize">@Model.GetDateTime(WebKeys.Published).ToString("dd MMMM yyyy")</p>
+                                    @if (Document.Keys.Contains("Series"))
+                                    {
+                                        <a class="fw-bold link-alpha h4 d-block mb-0" href='@Context.GetLink("/series/" + @Document.GetList<string>("SeriesDestinationPath").First())'>Series: @Document.GetString("Series")</a>
+                                    }
+                                    <h1 class="mb-0">@Document.GetString("Title")</h1>
+                                    <ul class="list-unstyled list-inline mb-0 mt-3">
+                                        @foreach (var tag in Document.GetList<string>("Tags"))
+                                        {
+                                            <li class="list-inline-item position-relative z-index-1 mb-2 me-1"><a class="badge btn btn-alpha" href='@Context.GetLink("/tags/")@tag'><span>#@tag</span></a></li>
+                                        }
+                                    </ul>
+                                    <ul class="list-unstyled mb-0 mt-2 me-2 text-center position-absolute top-0 end-0">
+                                        <li class="position-relative me-0 mb-2">
+                                            <a class="icon icon-sm icon-circle icon-blip icon-blip-linkedin" href="https://www.facebook.com/sharer/sharer.php?u=@shareUrl" title="Share on LinkedIn" target="_blank" rel="noreferrer">
+                                                <i class="fa-brands fa-linkedin-in"></i>
+                                            </a>
+                                        </li>
+                                        <li class="position-relative me-0 mb-2">
+                                            <a class="icon icon-sm icon-circle icon-blip icon-blip-twitter" href='https://twitter.com/intent/tweet?text=@title&url=@shareUrl' title="Share on Twitter" target="_blank" rel="noreferrer">
+                                                <i class="fa-brands fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li class="position-relative me-0">
+                                            <a class="icon icon-sm icon-circle icon-blip icon-blip-facebook" href='https://www.facebook.com/sharer/sharer.php?u=@shareUrl' title="Share on Facebook" target="_blank" rel="noreferrer">
+                                                <i class="fa-brands fa-facebook-f"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <section>
-            <div class="container-lg">
-                <div class="row ">
-                    <div class="col-lg-8 mx-auto p-0">
-                        <div class="link-underline-container link-underline-alpha-container card card-body border-top-0 text-opposite pt-6 p-md-5">
-                            @RenderBody()
-                        </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container-lg">
+        <div class="row ">
+            <div class="col-lg-8 mx-auto p-0">
+                <div class="card card-body border-top-0 pt-6 p-md-5">
+                    @Html.Partial("~/shared/_SeriesList.cshtml")
+                    <div class="link-underline-container link-underline-alpha-container text-opposite my-4">
+                        @RenderBody()
                     </div>
+                    @Html.Partial("~/shared/_SeriesList.cshtml")
                 </div>
             </div>
-        </section>
-        <section id="connect" class="collapse show bg-alpha position-relative">
-            <div id="draggableContainer" class="container-lg py-6">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto px-md-5 position-relative">
-                        @Html.Partial("~/shared/_Connect.cshtml")
-                    </div>
-                </div>
+        </div>
+    </div>
+</section>
+<section id="connect" class="collapse show bg-alpha position-relative">
+    <div id="draggableContainer" class="container-lg py-6">
+        <div class="row">
+            <div class="col-lg-8 mx-auto px-md-5 position-relative">
+                @Html.Partial("~/shared/_Connect.cshtml")
             </div>
-        </section>
-    </main>
-    @Html.Partial("~/shared/_LayoutFooter.cshtml")
-</body>
-</html>
+        </div>
+    </div>
+</section>

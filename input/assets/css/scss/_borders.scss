@@ -24,6 +24,11 @@
             border: 1px solid;
             border-color: var(--#{$variable-prefix}#{$color}) !important;
         }
+
+        .border-#{$color}-accessible {
+            border: 1px solid;
+            border-color: var(--#{$variable-prefix}#{$color}-accessible) !important;
+        }
     }
 }
 
