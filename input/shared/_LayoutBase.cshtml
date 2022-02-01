@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-sh-theme="bubblegum">
+<head>
+    @{
+        string title = Document.Keys.Contains(Keys.Title) ? "Steph Hays | " + (Document.Keys.Contains("Series") ? Document.GetString("Series") + ": " : "") + Document.GetString(Keys.Title) : "Steph Hays";
+        string description = Document.ContainsKey(Keys.Excerpt) ? Document.GetString(Keys.Excerpt) : "This place is my personal code playground and mostly concentrates on recent experiements, projects, and blog ramblings about my journeys of web development and my life with 2 crazy kids.";
+        string ogImage = Document.ContainsKey("OgImage") ? Document.GetString("OgImage") : "stephhays-dev-og.png";
+        string baseUrl = Context.GetLink().TrimEnd('/');
+    }
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#557efe">
+    @RenderSection("ExtraHeaders", required: false)
+    <meta name="description" content="@description" />
+    @* Open Graph data *@
+    <meta property="og:title" content="@title" />
+    <meta property="og:description" content="@description" />
+    <meta property="og:image" content='@baseUrl/assets/images/social-share/@ogImage' />
+    <meta property="og:site_name" content="Steph Hays" />
+    <meta property="og:type" content="blog" />
+    <meta property="og:url" content="@baseUrl@Document.GetLink()" />
+    @* Twitter Card data *@
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@@st3phhays">
+    <meta name="twitter:creator" content="@@st3phhays">
+    @* Apple Touch and Favicons *@
+    <link rel="icon" type="image/png" sizes="16x16" href='@baseUrl/favicon-16x16.png'>
+    <link rel="icon" type="image/png" sizes="32x32" href='@baseUrl/favicon-32x32.png'>
+    <link rel="icon" type="image/png" sizes="96x96" href='@baseUrl/favicon-96x96.png'>
+    <link rel="apple-touch-icon" href='@baseUrl/apple-touch-icon.png' />
+    <link rel="apple-touch-icon" sizes="152x152" href='@baseUrl/apple-touch-icon-152x152.png' />
+    <link rel="apple-touch-icon" sizes="167x167" href='@baseUrl/apple-touch-icon-167x167.png' />
+    <link rel="apple-touch-icon" sizes="180x180" href='@baseUrl/apple-touch-icon-180x180.png' />
+    <link rel="manifest" href="@baseUrl/site.webmanifest">
+    <title>@title</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Press+Start+2P&family=Satisfy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href='@Context.GetLink("/assets/css/stephhays.bundle.min.css")'>
+    <script type="text/javascript" src='@Context.GetLink("/assets/js/stephhays.head.bundle.min.js")'></script>
+</head>
+<body class='@(Document.Keys.Contains("CenteredLayout") || (Document.Keys.Contains("Type") && Document.GetString("Type") == "blog") ? "bg-alpha" : "")'>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T2HZRNJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <div id="fb-root"></div>
+    <script type="text/javascript" src='@Context.GetLink("/assets/js/stephhays.body.bundle.min.js")'></script>
+    @Html.Partial("~/shared/_SvgDefs.cshtml")
+    <header class="bg-alpha position-relative z-index-2">
+        <nav class="container-fluid position-relative z-index-1 py-3">
+            <ul class="list-main-nav list-inline text-center d-flex align-items-center justify-content-center position-relative mb-0">
+                @Html.Partial("~/shared/_LayoutMainNavItems.cshtml")
+                <li class="list-inline-item position-absolute top-50 end-0 translate-middle-y">
+                    <div class="btn-group">
+                        <button id="themeSelectorDropdown" type="button" class="btn btn-sm btn-beta dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Dropdown button for available website theme colors">
+                            <i class="fa-solid fa-paint-roller"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><button class="dropdown-item theme-selector" type="button" data-sh-theme="bubblegum">Bubblegum</button></li>
+                            <li><button class="dropdown-item theme-selector active" type="button" data-sh-theme="moon" aria-current="true">Moon</button></li>
+                            <li><button class="dropdown-item theme-selector" type="button" data-sh-theme="spunky">Spunky</button></li>
+                            <li><button class="dropdown-item theme-selector" type="button" data-sh-theme="synth">Synth</button></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main role="main" class='@(Document.Keys.Contains("CenteredLayout") ? "mt-md-auto" : "")'>
+        @RenderBody()
+    </main>
+    <footer class="bg-alpha position-relative z-index-1 text-center">
+        <nav class="container-fluid py-3">
+            <ul class="list-main-nav list-inline text-center d-flex align-items-center justify-content-center position-relative mb-0">
+                @Html.Partial("~/shared/_LayoutMainNavItems.cshtml")
+            </ul>
+        </nav>
+        <p class="small">© @DateTime.Today.Year Steph Hays</p>
+    </footer>
+    <script type="text/javascript" src='@Context.GetLink("/assets/js/stephhays.bundle.min.js")'></script>
+</body>
+</html>
