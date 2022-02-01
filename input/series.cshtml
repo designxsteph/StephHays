@@ -3,6 +3,16 @@ ArchiveKey: SeriesDestinationPath
 ArchiveOrder: => GetDateTime("Published")
 ArchiveOrderDescending: true
 ---
+@{
+    string title = "Steph Hays | Series" + (Model.ContainsKey(Keys.GroupKey) ? ": " + @Model.GetChildren().Last().GetString("Series") : "");
+    string description = Model.ContainsKey(Keys.GroupKey) ? @Model.GetChildren().Last().GetString("SeriesExcerpt") : "Blog and code experiment collections.";
+}
+@section ExtraHeaders {
+    <meta name="description" content="@description" />
+    <meta property="og:title" content="@title" />
+    <meta property="og:description" content="@description" />
+    <title>@title</title>
+}
 
 @if (Model.ContainsKey(Keys.GroupKey))
 {
@@ -17,7 +27,7 @@ ArchiveOrderDescending: true
                             @Html.Partial("~/shared/_HeaderCard.cshtml")
                             <div class="m-4 position-relative border border-opposite p-5">
                                 <h1>Series: @Model.GetChildren().Last().GetString("Series")</h1>
-                                <p class="fs-5 mb-0">@Model.GetChildren().Last().GetString("SeriesExcerpt")</p>
+                                <p class="fs-5 mb-0">@description</p>
                             </div>
                         </div>
                     </div>
@@ -42,7 +52,7 @@ else
                             @Html.Partial("~/shared/_HeaderCard.cshtml")
                             <div class="m-4 position-relative border border-opposite p-5">
                                 <h1>Series</h1>
-                                <p class="fs-5 mb-0">Blog and code experiment collections.</p>
+                                <p class="fs-5 mb-0">@description</p>
                             </div>
                         </div>
                     </div>
