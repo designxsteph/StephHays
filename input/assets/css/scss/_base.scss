@@ -14,6 +14,21 @@ h1, .h1 {
     font-weight: 900;
 }
 
+// Show dark/light assets
+[data-sh-theme="spunky"] .light-theme,
+[data-sh-theme="moon"] .light-theme,
+[data-sh-theme="bubblegum"] .dark-theme,
+[data-sh-theme="synth"] .dark-theme {
+    display: none;
+}
+
+[data-sh-theme="spunky"] .dark-theme,
+[data-sh-theme="moon"] .dark-theme,
+[data-sh-theme="bubblegum"] .light-theme,
+[data-sh-theme="synth"] .light-theme {
+    display: block;
+}
+
 // Images
 img {
     max-width: 100%;
