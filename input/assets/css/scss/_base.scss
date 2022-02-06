@@ -1,62 +1,8 @@
 body {
-    display: flex;
-    flex-flow: column;
-    min-height: 100vh;
     background: var(--sh-main);
     color: var(--sh-opposite);
 }
 
-main {
-    margin-bottom: auto;
-}
-
 h1, .h1 {
     font-weight: 900;
-}
-
-// Show dark/light assets
-[data-sh-theme="spunky"] .light-theme,
-[data-sh-theme="moon"] .light-theme,
-[data-sh-theme="bubblegum"] .dark-theme,
-[data-sh-theme="synth"] .dark-theme {
-    display: none;
-}
-
-[data-sh-theme="spunky"] .dark-theme,
-[data-sh-theme="moon"] .dark-theme,
-[data-sh-theme="bubblegum"] .light-theme,
-[data-sh-theme="synth"] .light-theme {
-    display: block;
-}
-
-// Images
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-// Scrollbar
-::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	background-color: var(--sh-main);
-}
-
-::-webkit-scrollbar
-{
-	width: 10px;
-	background-color: var(--sh-main);
-}
-
-::-webkit-scrollbar-thumb
-{
-	background-color: var(--sh-beta);	
-	background-image: -webkit-linear-gradient(90deg,
-	                                          rgba(255, 255, 255, .2) 25%,
-											  transparent 25%,
-											  transparent 50%,
-											  rgba(255, 255, 255, .2) 50%,
-											  rgba(255, 255, 255, .2) 75%,
-											  transparent 75%,
-											  transparent)
 }

@@ -9,19 +9,19 @@
     "outputFileName": "output/assets/js/stephhays.head.bundle.js",
     "inputFiles": [
       "input/assets/js/head-google-tag-manager.js",
-      "input/assets/js/head-theme-selector.js"
+      "node_modules/st3phhays-assets/js/head-theme-selector-dropdown.js"
     ]
   },
   {
     "outputFileName": "output/assets/js/stephhays.body.bundle.js",
     "inputFiles": [
-      "input/assets/js/body-facebook-share.js"
+      "node_modules/st3phhays-assets/js/body-facebook-share.js"
     ]
   },
   {
       "outputFileName": "output/assets/js/stephhays.bundle.js",
       "inputFiles": [
-        "input/assets/js/lazy-load.js",
+        "node_modules/st3phhays-assets/js/lazy-load.js",
         "node_modules/@popperjs/core/dist/umd/popper.js",
         "node_modules/bootstrap/js/dist/dom/data.js",
         "node_modules/bootstrap/js/dist/dom/event-handler.js",
@@ -31,15 +31,19 @@
         "node_modules/bootstrap/js/dist/dropdown.js",
         "node_modules/bootstrap/js/dist/collapse.js",
         "node_modules/canvas-confetti/dist/confetti.browser.js",
-        "input/assets/js/twitter-share.js",
-        "input/assets/js/global.js",
-        "input/assets/js/collapse-hash.js",
-        "input/assets/js/theme-selector-dropdown.js",
-        "input/assets/js/tic-tac-toe.js",
-        "input/assets/js/match-up.js",
-        "input/assets/js/console-image.js",
-        "input/assets/js/collapse-target.js",
-        "input/assets/js/draggable.js"
+        "node_modules/st3phhays-assets/js/twitter-share.js",
+        "node_modules/st3phhays-assets/js/functions/escape-special-chars.js",
+        "node_modules/st3phhays-assets/js/functions/random-no-repeats.js",
+        "node_modules/st3phhays-assets/js/functions/confetti.js",
+        "node_modules/st3phhays-assets/js/functions/get-parents.js",
+        "node_modules/st3phhays-assets/js/functions/console-image.js",
+        "node_modules/st3phhays-assets/js/collapse-hash.js",
+        "node_modules/st3phhays-assets/js/confetti-ondemand.js",
+        "node_modules/st3phhays-assets/js/theme-selector-dropdown.js",
+        "node_modules/st3phhays-assets/js/tic-tac-toe.js",
+        "node_modules/st3phhays-assets/js/match-up.js",
+        "node_modules/st3phhays-assets/js/collapse-target.js",
+        "node_modules/st3phhays-assets/js/draggable.js"
       ]
     }
   ]

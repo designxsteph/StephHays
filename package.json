@@ -34,6 +34,7 @@
     "gulp-sass": "^5.0.0",
     "gulp-uglify-es": "^3.0.0",
     "merge-stream": "^2.0.0",
-    "sass": "^1.44.0"
+    "sass": "^1.44.0",
+    "st3phhays-assets": "git+https://github.com/st3phhays/st3phhays-assets.git"
   }
 }

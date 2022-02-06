@@ -1301,6 +1301,7 @@ __metadata:
     gulp-uglify-es: ^3.0.0
     merge-stream: ^2.0.0
     sass: ^1.44.0
+    st3phhays-assets: "git+https://github.com/st3phhays/st3phhays-assets.git"
   languageName: unknown
   linkType: soft
 
@@ -5120,6 +5121,13 @@ __metadata:
   dependencies:
     minipass: ^3.1.1
   checksum: bc447f5af814fa9713aa201ec2522208ae0f4d8f3bda7a1f445a797c7b929a02720436ff7c478fb5edc4045adb02b1b88d2341b436a80798734e2494f1067b36
+  languageName: node
+  linkType: hard
+
+"st3phhays-assets@git+https://github.com/st3phhays/st3phhays-assets.git":
+  version: 0.1.0
+  resolution: "st3phhays-assets@https://github.com/st3phhays/st3phhays-assets.git#commit=f50e465be45af240993e38de532567cc6a212a40"
+  checksum: e676d13d0147c74ebbbfe89a33e714225fd658f4c825881ae05da7fbf8ad00ba759d13a69da81134bfa82562f8b2c7a31cc429516424f295a6112f827300278f
   languageName: node
   linkType: hard
 

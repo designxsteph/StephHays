@@ -1,7 +1,6 @@
-// Bootstrap
 // Configuration
 @import "../../../../node_modules/bootstrap/scss/functions";
-@import "functions";
+@import "../../../../node_modules/st3phhays-assets/css/scss/functions";
 
 // Variable overrides
 @import "variables";
@@ -9,12 +8,12 @@
 @import "../../../../node_modules/bootstrap/scss/mixins";
 
 // Map overrides
-@import "map-overrides";
+@import "../../../../node_modules/st3phhays-assets/css/scss/map-overrides";
 @import "../../../../node_modules/bootstrap/scss/utilities";
 
 // Layout & components
 //@import "../../../../node_modules/bootstrap/scss/root";
-@import "root";
+@import "../../../../node_modules/st3phhays-assets/css/scss/root";
 @import "../../../../node_modules/bootstrap/scss/reboot";
 @import "../../../../node_modules/bootstrap/scss/type";
 @import "../../../../node_modules/bootstrap/scss/images";
@@ -58,21 +57,27 @@
 @import "../../../../node_modules/@fortawesome/fontawesome-free/scss/regular";
 @import "../../../../node_modules/@fortawesome/fontawesome-free/scss/brands";
 
-// Custom styles
+// Styles from st3phhays-assets
+@import "../../../../node_modules/st3phhays-assets/css/scss/base";
+@import "../../../../node_modules/st3phhays-assets/css/scss/animations";
+@import "../../../../node_modules/st3phhays-assets/css/scss/backgrounds-fill";
+@import "../../../../node_modules/st3phhays-assets/css/scss/text";
+@import "../../../../node_modules/st3phhays-assets/css/scss/links";
+@import "../../../../node_modules/st3phhays-assets/css/scss/buttons";
+@import "../../../../node_modules/st3phhays-assets/css/scss/dropdowns";
+@import "../../../../node_modules/st3phhays-assets/css/scss/cards";
+@import "../../../../node_modules/st3phhays-assets/css/scss/lists";
+@import "../../../../node_modules/st3phhays-assets/css/scss/borders";
+@import "../../../../node_modules/st3phhays-assets/css/scss/utilities";
+@import "../../../../node_modules/st3phhays-assets/css/scss/icons";
+
+// Project specific styles
 @import "base";
-@import "animations";
 @import "main-navigation";
-@import "backgrounds-fill";
-@import "text";
-@import "buttons";
-@import "dropdowns";
-@import "cards";
-@import "lists";
+@import "scrollbars";
 @import "badges";
-@import "borders";
-@import "utilities";
+@import "type-flyout";
 @import "screensaver";
 @import "match-up";
-@import "icons";
 @import "tic-tac-toe";
 @import "draggable";
