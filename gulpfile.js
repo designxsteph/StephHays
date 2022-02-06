@@ -29,16 +29,16 @@ const paths = {
 };
 
 const getBundles = (regexPattern) => {
-  return bundleconfig.filter(bundle => {
-      return regexPattern.test(bundle.outputFileName);
-  });
+    return bundleconfig.filter(bundle => {
+        return regexPattern.test(bundle.outputFileName);
+    });
 };
 
 function delStart() {
-  return src([
-      paths.output
+    return src([
+        paths.output
     ], { allowEmpty: true })
-      .pipe(clean({ force: true }));
+        .pipe(clean({ force: true }));
 }
 
 function copyAssets() {
@@ -58,109 +58,105 @@ function copyAssets() {
 }
 
 function compileScss() {
-  return src(paths.assets + 'css/scss/*.scss')
-      .pipe(sass().on('error', sass.logError))
-      .pipe(dest(paths.output + 'css'));
+    return src(paths.assets + 'css/scss/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(dest(paths.output + 'css'));
 }
 
 function concatJs() {
-  var tasks = getBundles(regex.js).map(function (bundle) {
-
-      return src(bundle.inputFiles, { base: '.' })
-          .pipe(babel({
-              "sourceType": "unambiguous",
-              "presets": [
-                  ["@babel/preset-env", {
-                      "targets": {
-                          "ie": "10"
-                      }
-                  }
+    var tasks = getBundles(regex.js).map(function (bundle) {
+        return src(bundle.inputFiles, { base: '.' })
+            .pipe(babel({
+                "sourceType": "unambiguous",
+                "presets": [
+                    ["@babel/preset-env", {
+                        "targets": {
+                            "ie": "10"
+                        }
+                    }
                 ]]
-          }))
-          .pipe(concat(bundle.outputFileName))
-          .pipe(dest('.'));
-  });
+            }))
+            .pipe(concat(bundle.outputFileName))
+            .pipe(dest('.'));
+    });
 
-  return merge(tasks);
+    return merge(tasks);
 }
 
 function concatCss() {
-  var tasks = getBundles(regex.css).map(function (bundle) {
+    var tasks = getBundles(regex.css).map(function (bundle) {
 
-      return src(bundle.inputFiles, { base: '.' })
-          .pipe(concat(bundle.outputFileName))
-          .pipe(dest('.'));
-  });
+        return src(bundle.inputFiles, { base: '.' })
+            .pipe(concat(bundle.outputFileName))
+            .pipe(dest('.'));
+    });
 
-  return merge(tasks);
+    return merge(tasks);
 }
 
 function purgeCss() {
-  return src(paths.output + 'css/stephhays.bundle.css')
-      .pipe(purgecss({
-          content: [
-              paths.input + '**/*.cshtml',
-              paths.input + '**/*.md',
-              paths.output + 'js/*.*'
-          ],
-          safelist: [
-              '::-webkit-scrollbar',
-              '::-webkit-scrollbar-thumb',
-              'type-flyout-code',
-              'type-flyout-blog',
-              'type-flyout-project',
-              'h1',
-              'h2',
-              'h3',
-              'h4',
-              'h5',
-              'h6'
-          ]
-      }))
-      .pipe(dest(paths.output + 'css/'));
+    return src(paths.output + 'css/stephhays.bundle.css')
+        .pipe(purgecss({
+            content: [
+                paths.input + '**/*.cshtml',
+                paths.input + '**/*.md',
+                paths.output + 'js/*.*'
+            ],
+            safelist: [
+                '::-webkit-scrollbar',
+                '::-webkit-scrollbar-thumb',
+                'type-flyout-code',
+                'type-flyout-blog',
+                'type-flyout-project',
+                'h1',
+                'h2',
+                'h3',
+                'h4',
+                'h5',
+                'h6'
+            ],
+            keyframes: true,
+            variables: true
+        }))
+        .pipe(dest(paths.output + 'css/'));
 }
 
 function minCss() {
-  var tasks = getBundles(regex.css).map(function (bundle) {
+    var tasks = getBundles(regex.css).map(function (bundle) {
 
-      return src(bundle.outputFileName, { base: '.' })
-          .pipe(cleancss({
-              level: 2,
-              compatibility: 'ie8'
-          }))
-          .pipe(rename({ suffix: '.min' }))
-          .pipe(dest('.'));
-  });
+        return src(bundle.outputFileName, { base: '.' })
+            .pipe(cleancss({
+                level: 2,
+                compatibility: 'ie8'
+            }))
+            .pipe(rename({ suffix: '.min' }))
+            .pipe(dest('.'));
+    });
 
-  return merge(tasks);
+    return merge(tasks);
 }
 
 function minJs() {
-  var tasks = getBundles(regex.js).map(function (bundle) {
+    var tasks = getBundles(regex.js).map(function (bundle) {
 
-      return src(bundle.outputFileName, { base: '.' })
-          .pipe(uglify())
-          .pipe(rename({ suffix: '.min' }))
-          .pipe(dest('.'));
-  });
+        return src(bundle.outputFileName, { base: '.' })
+            .pipe(uglify())
+            .pipe(rename({ suffix: '.min' }))
+            .pipe(dest('.'));
+    });
 
-  return merge(tasks);
+    return merge(tasks);
 }
 
 function delEnd() {
-  return src([
-      paths.output + 'css/*.css',
-      '!' + paths.output + 'css/*.min.css',
-      paths.output + 'js/*.js',
-      '!' + paths.output + 'js/*.min.js'
-  ], { allowEmpty: true })
-      .pipe(clean({ force: true }));
+    return src([
+        paths.output + 'css/*.css',
+        '!' + paths.output + 'css/*.min.css',
+        paths.output + 'js/*.js',
+        '!' + paths.output + 'js/*.min.js'
+    ], { allowEmpty: true })
+        .pipe(clean({ force: true }));
 }
-
-// Independednt tasks
-//exports.delStart = delStart;
-//exports.compileScss = compileScss;
-//exports.concatCss = concatCss;
 
 // Gulp series
 exports.concatScssJs = parallel(compileScss, concatJs);
