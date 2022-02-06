@@ -1,0 +1,28 @@
+.type-flyout {
+    height: 30px;
+    transition: .25s linear;
+
+    &.type-flyout-code {
+        right: -55px;
+
+        .type-flyout-text {
+            width: 55px;
+        }
+    }
+
+    &.type-flyout-blog {
+        right: -47px;
+
+        .type-flyout-text {
+            width: 47px;
+        }
+    }
+
+    &:hover {
+        right: 0;
+    }
+
+    .type-flyout-icon {
+        width: 50px;
+    }
+}
