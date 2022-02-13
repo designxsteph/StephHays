@@ -1,6 +1,6 @@
 body {
-    background: var(--sh-main);
-    color: var(--sh-opposite);
+    background: var(--#{$variable-prefix}main);
+    color: var(--#{$variable-prefix}opposite);
 }
 
 h1, .h1 {

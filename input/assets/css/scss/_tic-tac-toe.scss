@@ -15,42 +15,42 @@
 
             &.loser {
                 .board {
-                    border-color: var(--sh-red);
-                    outline: 10px double var(--sh-red);
+                    border-color: var(--#{$variable-prefix}red);
+                    outline: 10px double var(--#{$variable-prefix}red);
                 }
 
                 .score {
-                    color: var(--sh-red);
+                    color: var(--#{$variable-prefix}red);
                     margin-left: -7px;
                 }
             }
 
             &.winner {
                 .board {
-                    border-color: var(--sh-green);
-                    outline: 10px double var(--sh-green);
+                    border-color: var(--#{$variable-prefix}green);
+                    outline: 10px double var(--#{$variable-prefix}green);
                 }
 
                 .score {
-                    color: var(--sh-green);
+                    color: var(--#{$variable-prefix}green);
                     margin-left: -17px;
                 }
             }
 
             &.tie {
                 .board {
-                    border-color: var(--sh-yellow);
-                    outline: 10px double var(--sh-yellow);
+                    border-color: var(--#{$variable-prefix}yellow);
+                    outline: 10px double var(--#{$variable-prefix}yellow);
                 }
 
                 .score {
-                    color: var(--sh-yellow);
+                    color: var(--#{$variable-prefix}yellow);
                     margin-left: 20px;
                 }
             }
 
             .board {
-                border-color: var(--sh-epsilon);
+                border-color: var(--#{$variable-prefix}epsilon);
                 outline: double 1px transparent;
                 transition: outline 0.6s linear, border-color 0.6s linear;
             }
