@@ -119,7 +119,7 @@ $themes: (
 // Cards
 $card-border-radius:    0;
 $card-border-width:     2px;
-$card-border-color:     var(--sh-opposite);
+$card-border-color:     var(--#{$variable-prefix}opposite);
 
 // Buttons
 $btn-border-radius:     0;
@@ -129,14 +129,14 @@ $badge-border-radius:   0;
 
 // List group
 $list-group-border-radius:          0;
-$list-group-color:                  var(--sh-main-accessible);
-$list-group-action-color:           var(--sh-main-accessible);
-$list-group-action-hover-color:     var(--sh-alpha);
-$list-group-action-active-color:    var(--sh-alpha);
-$list-group-action-active-bg:       var(--sh-main);
-$list-group-bg:                     var(--sh-main);
-$list-group-hover-bg:               var(--sh-main);
-$list-group-active-bg:              var(--sh-main);
-$list-group-active-color:           var(--sh-main-accessible);
-$list-group-border-color:           customAlpha(--sh-opposite, 20%);
-$list-group-active-border-color:    customAlpha(--sh-opposite, 20%);
+$list-group-color:                  var(--#{$variable-prefix}main-accessible);
+$list-group-action-color:           var(--#{$variable-prefix}main-accessible);
+$list-group-action-hover-color:     var(--#{$variable-prefix}alpha);
+$list-group-action-active-color:    var(--#{$variable-prefix}alpha);
+$list-group-action-active-bg:       var(--#{$variable-prefix}main);
+$list-group-bg:                     var(--#{$variable-prefix}main);
+$list-group-hover-bg:               var(--#{$variable-prefix}main);
+$list-group-active-bg:              var(--#{$variable-prefix}main);
+$list-group-active-color:           var(--#{$variable-prefix}main-accessible);
+$list-group-border-color:           customAlpha(--#{$variable-prefix}opposite, 20%);
+$list-group-active-border-color:    customAlpha(--#{$variable-prefix}opposite, 20%);
