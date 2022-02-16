@@ -11,6 +11,7 @@ const gulp = require('gulp'),
     rename = require('gulp-rename'),
     merge = require('merge-stream'),
     injectstring = require('gulp-inject-string'),
+    imagemin = require('gulp-imagemin'),
     bundleconfig = require('./bundleconfig.json'),
     fs = require('fs');
 
@@ -46,9 +47,11 @@ function copyAssets() {
         .pipe(dest(paths.output + 'fonts/fontawesome-free'));
 
     var copyImages = src(paths.assets + 'images/**/*.*')
+        .pipe(imagemin())
         .pipe(dest(paths.output + 'images'));
 
     var copyIcons = src(paths.input + '/*.png')
+        .pipe(imagemin())
         .pipe(dest('output'));
 
     var copyManifest = src(paths.input + '/site.webmanifest')
