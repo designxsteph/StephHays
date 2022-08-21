@@ -7,6 +7,7 @@ Tags:
 - minecraft
 ImageListing: blog-minecraft-chest-wool-fountain.png
 OgImage: blog-minecraft-chest-wool-fountain-og.png
+TwitterImage: blog-minecraft-chest-wool-fountain-twitter.png
 DestinationPath: blog/minecraft-chest-wool-fountain.html
 ---
 

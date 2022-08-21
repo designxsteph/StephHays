@@ -11,6 +11,7 @@ Tags:
 - brainstorming
 ImageListing: blog-building-stephhays-dev-part-1.png
 OgImage: blog-building-stephhays-dev-part-1-og.png
+TwitterImage: blog-building-stephhays-dev-part-1-twitter.png
 DestinationPath: blog/so-much-room-for-activities.html
 ---
 
