@@ -12,6 +12,11 @@ const gulp = require('gulp'),
     merge = require('merge-stream'),
     injectstring = require('gulp-inject-string'),
     imagemin = require('gulp-imagemin'),
+    browserify = require('browserify'),
+    babelify = require('babelify'),
+    source = require('vinyl-source-stream'),
+    buffer = require('vinyl-buffer'),
+    util = require('gulp-util'),
     bundleconfig = require('./bundleconfig.json'),
     fs = require('fs');
 

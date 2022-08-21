@@ -21,7 +21,7 @@
                 height: 100%;
                 -webkit-backface-visibility: hidden;
                 backface-visibility: hidden;
-                border: 2px solid var(--#{$variable-prefix}black);
+                border: 2px solid var(--#{$prefix}black);
                 display: flex;
                 align-items: center;
                 justify-content: center;

@@ -5,10 +5,11 @@
 // Variable overrides
 @import "variables";
 @import "../../../../node_modules/bootstrap/scss/variables";
-@import "../../../../node_modules/bootstrap/scss/mixins";
 
 // Map overrides
 @import "../../../../node_modules/st3phhays-assets/css/scss/map-overrides";
+@import "../../../../node_modules/bootstrap/scss/maps";
+@import "../../../../node_modules/bootstrap/scss/mixins";
 @import "../../../../node_modules/bootstrap/scss/utilities";
 
 // Layout & components
