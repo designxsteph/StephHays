@@ -1,6 +1,7 @@
 @{
     Layout = "_LayoutBase.cshtml";
     string title = Document.Keys.Contains(Keys.Title) ? "Steph Hays | " + (Document.Keys.Contains("Series") ? Document.GetString("Series") + " - " : "") + Document.GetString(Keys.Title) : "Steph Hays";
+    string shareTitle = Document.Keys.Contains(Keys.Title) ? "Steph Hays %7C " + (Document.Keys.Contains("Series") ? Document.GetString("Series") + " - " : "") + Document.GetString(Keys.Title) : "Steph Hays";
     string shareUrl = @Context.GetLink().TrimEnd('/') + Document.GetLink();
 }
 @section ExtraHeaders
@@ -38,7 +39,7 @@
                                             </a>
                                         </li>
                                         <li class="position-relative me-0 mb-2">
-                                            <a class="icon icon-sm icon-circle icon-blip icon-blip-twitter" href='https://twitter.com/intent/tweet?text=@title&url=@shareUrl' title="Share on Twitter" target="_blank" rel="noreferrer">
+                                            <a class="icon icon-sm icon-circle icon-blip icon-blip-twitter" href='https://twitter.com/intent/tweet?text=@shareTitle&url=@shareUrl' title="Share on Twitter" target="_blank" rel="noreferrer">
                                                 <i class="fa-brands fa-twitter"></i>
                                             </a>
                                         </li>
