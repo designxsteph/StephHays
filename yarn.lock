@@ -1500,9 +1500,9 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*":
-  version: 18.7.8
-  resolution: "@types/node@npm:18.7.8"
-  checksum: e0125efefa896083c05f549d93166109959ffdd68cb626aad0d660c0ce9de888fe405b4763b4a3c3e0968560409c272413e0ad07204522543c688e162a617ecb
+  version: 18.7.9
+  resolution: "@types/node@npm:18.7.9"
+  checksum: 691ea1b734c0a39c4fe03c104fed18e0148bda6f2504dd341f84be8153d28e74d8114198d2d064ab7fdd2ece3ee16c60b78eea0101fb004f6e4595a631bc3839
   languageName: node
   linkType: hard
 
@@ -8759,8 +8759,8 @@ __metadata:
 
 "st3phhays-assets@git+https://github.com/st3phhays/st3phhays-assets.git":
   version: 0.1.0
-  resolution: "st3phhays-assets@https://github.com/st3phhays/st3phhays-assets.git#commit=4f028d2d9ffada1d99df4d4d97b2c318392630f8"
-  checksum: 51a4b314e8924313a1a6b4aed047f7e656363813f6bd3b8d4b5a7ec22dc44a31416b5245443e3e55dbe4a15b3929efd5da3190601b2ffe64bf90022c0b4cc24d
+  resolution: "st3phhays-assets@https://github.com/st3phhays/st3phhays-assets.git#commit=d58f15b9c66ea8b78a99922009cd229455226923"
+  checksum: 163839738ee6ddccc8402af3a7ee66482ed2961c894bb264ce24b60294ebb61b8914c25beed8095ea3e1974a13bc6ff1758dcbfa54964066ea406d4c50364441
   languageName: node
   linkType: hard
 

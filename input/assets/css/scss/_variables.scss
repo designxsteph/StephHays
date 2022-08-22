@@ -123,6 +123,8 @@ $card-border-color:     var(--#{$prefix}opposite);
 
 // Buttons
 $btn-border-radius:     0;
+$btn-border-radius-sm:  0;
+$btn-border-radius-lg:  0;
 
 // Badges
 $badge-border-radius:   0;
@@ -140,3 +142,8 @@ $list-group-active-bg:              var(--#{$prefix}main);
 $list-group-active-color:           var(--#{$prefix}main-accessible);
 $list-group-border-color:           customAlpha(--#{$prefix}opposite, 20%);
 $list-group-active-border-color:    customAlpha(--#{$prefix}opposite, 20%);
+
+// Forms
+$input-border-radius:                   0;
+$input-border-radius-sm:                0;
+$input-border-radius-lg:                0;
