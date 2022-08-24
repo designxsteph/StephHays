@@ -161,3 +161,12 @@ $input-border-radius-lg:                0;
 
 // Code
 $code-color:    var(--#{$prefix}opposite);
+
+// Tabs
+$nav-tabs-border-color:             var(--#{$prefix}opposite);
+$nav-tabs-border-radius:            0;
+$nav-tabs-link-hover-border-color:  var(--#{$prefix}alpha) var(--#{$prefix}alpha) $nav-tabs-border-color;
+$nav-tabs-link-active-color:        var(--#{$prefix}alpha-accessible);
+$nav-tabs-link-active-bg:           var(--#{$prefix}alpha);
+$nav-tabs-link-active-border-color: var(--#{$prefix}alpha);
+
