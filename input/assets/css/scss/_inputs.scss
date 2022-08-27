@@ -1,20 +1,14 @@
-.form-control {
-	background: var(--#{$prefix}main);
-    color: var(--#{$prefix}opposite);
-	border-color: var(--#{$prefix}opposite);
-
-	&::placeholder {
-		color: var(--#{$prefix}opposite);
-	}
-
+.form-control.form-control-beta {
 	&:focus {
-		background: var(--#{$prefix}main);
-    	color: var(--#{$prefix}opposite);
 		border-color: var(--#{$prefix}beta);
-		box-shadow: 0 0 0 $btn-focus-width customAlpha(--#{$prefix}beta, .25);
+		box-shadow: 0 0 0 .25rem customAlpha(--#{$prefix}beta, 25%);
 	}
+}
 
-	+ label {
-		color: var(--#{$prefix}opposite);
+.markdown-container {
+	.form-check-input:disabled,
+	.form-check-input:disabled~.form-check-label, 
+	.form-check-input[disabled]~.form-check-label {
+		opacity: 1;
 	}
 }

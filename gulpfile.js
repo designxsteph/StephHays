@@ -123,8 +123,7 @@ function purgeCss() {
                 'h5',
                 'h6'
             ],
-            keyframes: true,
-            variables: true
+            keyframes: true
         }))
         .pipe(dest(paths.output + 'css/'));
 }

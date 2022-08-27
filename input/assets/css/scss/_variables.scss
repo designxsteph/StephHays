@@ -155,9 +155,23 @@ $list-group-border-color:           customAlpha(--#{$prefix}opposite, 20%);
 $list-group-active-border-color:    customAlpha(--#{$prefix}opposite, 20%);
 
 // Forms
+$input-bg:                              var(--#{$prefix}main);
+$input-border-color:                    var(--#{$prefix}opposite);
 $input-border-radius:                   0;
 $input-border-radius-sm:                0;
 $input-border-radius-lg:                0;
+
+$input-btn-focus-box-shadow:            0 0 0 .25rem customAlpha(--#{$prefix}alpha, 25%);
+$input-focus-border-color:              var(--#{$prefix}alpha);
+$input-focus-bg:                        $input-bg;
+$input-focus-color:                     $input-border-color;
+
+$input-placeholder-color:               $input-border-color;
+$input-plaintext-color:                 $input-border-color;
+
+$form-check-input-border:               1px solid var(--#{$prefix}alpha);
+$form-check-input-border-radius:        0;
+$form-check-input-checked-bg-color:     var(--#{$prefix}alpha);
 
 // Code
 $code-color:    var(--#{$prefix}opposite);
@@ -169,4 +183,3 @@ $nav-tabs-link-hover-border-color:  var(--#{$prefix}alpha) var(--#{$prefix}alpha
 $nav-tabs-link-active-color:        var(--#{$prefix}alpha-accessible);
 $nav-tabs-link-active-bg:           var(--#{$prefix}alpha);
 $nav-tabs-link-active-border-color: var(--#{$prefix}alpha);
-
