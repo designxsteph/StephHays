@@ -20,7 +20,7 @@ I was sent a sample of "CSS" written in a PowerShell hashtable and was told that
 
 <div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/YVPwi7L2izTJS" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" title="GIF of Bubbles from Trailer Park Boys" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/life-germany-YVPwi7L2izTJS">via GIPHY</a></p>
 
-Let's get a few things clear here, I know 0 PowerShell. So this concept was a bit odd to me at first, but also totally awesome. Even though I've never really worked with PowerShell, I decided to give the project a go. I'm always up for a good challenge and learning something new.
+Let's get a few things clear here, I know ZERO PowerShell. So this concept was a bit odd to me at first, but also totally awesome. Even though I've never really worked with PowerShell, I decided to give the project a go. I'm always up for a good challenge and learning something new.
 
 <p class="lead mb-0">The prerequisites:</p>
 <ul class="list-unstyled mb-0">
@@ -52,11 +52,11 @@ Let's get a few things clear here, I know 0 PowerShell. So this concept was a bi
 
 <h2 class="mt-4">Diving In</h2>
 
-The first thing I did was scavenged the PowerShell Universal docs for a few hours to try to wrap my brain around how Powershell Universal worked. Turns out it is built on top of the [Material UI](https://mui.com/) framework, specifically the [default theme](https://mui.com/material-ui/customization/default-theme/). So not only does PowerShell Universal convert PowerShell to CSS, but it also converts PowerShell into React components. How cool!
+The first thing I did was scavenged the PowerShell Universal docs for a few hours to try to wrap my brain around how PowerShell Universal worked. Turns out it is built on top of the [Material UI](https://mui.com/) framework, specifically the [default theme](https://mui.com/material-ui/customization/default-theme/). So not only does PowerShell Universal convert PowerShell to CSS, but it also converts PowerShell into React components. How cool!
 
 <h2 class="mt-4">Choosing a styling approach</h2>
 
-In PowerShell Universal, there is the option to [add a traditional custom CSS file](https://docs.powershelluniversal.com/userinterfaces/dashboards/themes/cascading-style-sheets) in addition to the `theme.ps1` (the intimidating hashtable from earlier) file. Initially, I was excited about this, however, the more tested it out, it made more sense to embrace PowerShell and use the CSS file as little as possible. 
+In PowerShell Universal, there is the option to [add a traditional custom CSS file](https://docs.powershelluniversal.com/userinterfaces/dashboards/themes/cascading-style-sheets) in addition to the `theme.ps1` (the intimidating hashtable from earlier) file. Initially, I was excited about this, however, the more I tested it out, it made more sense to embrace PowerShell and use the CSS file as little as possible. 
 
 Why? Updating styles in the `theme.ps1` file tends to override rules more gracefully than a CSS file. Updating the `theme.ps1` file adds extra styles onto the initial rule supplied by Material UI instead of creating a new rule entirely. This removes the need for a bunch of unnecessary `!important` flags floating around, so for me, this was the obvious choice.
 
@@ -149,7 +149,7 @@ For these examples, we'll target the top navigation bar with the class `.MuiAppB
     </div>
 </div>
 
-As you can see above, the conversion from PowerShell to CSS is quite simple. Just by looking at the two and comparing you can pretty much tell what is going on. The PowerShell Universal [docs](https://docs.powershelluniversal.com/userinterfaces/dashboards/themes) are also very good at explaining this and giving a few examples of what is possible.
+As you can see above, the conversion from PowerShell to CSS is quite simple. Just by comparing the two, you can pretty much tell what is going on. The PowerShell Universal [docs](https://docs.powershelluniversal.com/userinterfaces/dashboards/themes) are also very good at explaining this and giving a few examples of what is possible.
 
 Cool. So I modified a few things, and saw the changes, everything was looking good. Along with the main background colors, the alert component was the first thing I styled.
 
@@ -245,7 +245,7 @@ function Get-Colors {
     </div>
 </div>
 
-Boom!💥 Now, instead of repeating the same thing in multiple places, we define it once and loop through the `colors.json` file to pull the color values. This beautiful piece of PowerShell cuts down the `theme.ps1` file in half, plus all the colors are contained in one spot. You can also use the colors on components just by pulling them into the page file with the `Get-Colors` function.
+Boom!💥 Now, instead of repeating the same thing in multiple places, we define it once and loop through the `colors.json` file to pull the color values. This beautiful piece of PowerShell cuts down the `theme.ps1` file in half, plus all the colors are contained in one spot. You can also use the colors on components just by referencing them on the page file with the `Get-Colors` function.
 
 <div class="my-4">
 <pre><code class="language-powershell">
@@ -289,7 +289,7 @@ After a few weeks of hackery (this would have been faster, but kids), I came up 
 
 <h2 class="mt-4">Wait, hold up. Is that... dim mode?</h2>
 
-Turns out, that since all the colors are contained in the JSON file, adding or updating a theme is a breeze. Just swap out a few colors and that's it! Pretty nifty, aye?
+Turns out, since all the colors are contained in the JSON file, adding or updating a theme is a breeze. Just swap out a few colors and that's it! Pretty nifty, aye?
 
 <p class="lead mb-0">Let's go back to the prerequisites:</p>
 <ul class="list-unstyled mb-0">
@@ -321,7 +321,7 @@ Turns out, that since all the colors are contained in the JSON file, adding or u
 
 <h2 class="mt-4">Final thoughts</h2>
 
-Overall I had a great time working on this project and definitely learned more about PowerShell. It was a nice break away from my normal go-to technologies, and working with Chrissy has been fun!
+Overall, I had a great time working on this project and definitely learned more about PowerShell. It was a nice break away from my normal go-to technologies, and working with Chrissy has been fun!
 
 <p class="lead mb-0">Things to note:</p>
 
@@ -332,4 +332,4 @@ Overall I had a great time working on this project and definitely learned more a
 
 Will I do another project in PowerShell Universal? Perhaps. I'd like to try my hand at creating some [custom components](https://docs.powershelluniversal.com/userinterfaces/dashboards/components/building-custom-components) as well. I have ideas. 🤓⚗️🔬
 
-<p class="mb-0">Have more questions or just want to chat? <a href="#connect">Connect with me below</a>, I love hearing and learning from other rad developers!</p>
+<p class="mb-0">Have more questions or just want to chat? <a href="#connect">Connect with me below</a>. I love hearing and learning from other rad developers!</p>
