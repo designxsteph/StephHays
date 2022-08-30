@@ -1,46 +1,39 @@
 [
-  {
-    "outputFileName": "output/assets/css/stephhays.bundle.css",
-    "inputFiles": [
-      "output/assets/css/stephhays.css"
-    ]
-  },
-  {
-    "outputFileName": "output/assets/js/stephhays.head.bundle.js",
-    "inputFiles": [
-      "input/assets/js/head-google-tag-manager.js",
-      "node_modules/st3phhays-assets/js/head-theme-selector-dropdown.js"
-    ]
-  },
-  {
-    "outputFileName": "output/assets/js/stephhays.body.bundle.js",
-    "inputFiles": [
-      "node_modules/st3phhays-assets/js/body-facebook-share.js"
-    ]
-  },
-  {
-      "outputFileName": "output/assets/js/stephhays.bundle.js",
-      "inputFiles": [
-        "node_modules/st3phhays-assets/js/lazy-load.js",
-        "node_modules/@popperjs/core/dist/umd/popper.js",
-        "node_modules/bootstrap/dist/js/bootstrap.js",
-        "node_modules/canvas-confetti/dist/confetti.browser.js",
-        "node_modules/st3phhays-assets/js/prism.js",
-        "node_modules/st3phhays-assets/js/code-prism.js",
-        "node_modules/st3phhays-assets/js/twitter-share.js",
-        "node_modules/st3phhays-assets/js/functions/trim-string.js",
-        "node_modules/st3phhays-assets/js/functions/escape-special-chars.js",
-        "node_modules/st3phhays-assets/js/functions/random-no-repeats.js",
-        "node_modules/st3phhays-assets/js/functions/confetti.js",
-        "node_modules/st3phhays-assets/js/functions/get-parents.js",
-        "node_modules/st3phhays-assets/js/functions/console-image.js",
-        "node_modules/st3phhays-assets/js/collapse-hash.js",
-        "node_modules/st3phhays-assets/js/confetti-ondemand.js",
-        "node_modules/st3phhays-assets/js/theme-selector-dropdown.js",
-        "node_modules/st3phhays-assets/js/tic-tac-toe.js",
-        "node_modules/st3phhays-assets/js/match-up.js",
-        "node_modules/st3phhays-assets/js/collapse-target.js",
-        "node_modules/st3phhays-assets/js/draggable.js"
-      ]
-    }
-  ]
+	{
+		"outputFileName": "output/assets/css/stephhays.bundle.css",
+		"inputFiles": [
+			"output/assets/css/stephhays.css"
+		]
+	},
+	{
+		"outputFileName": "output/assets/js/stephhays.head.bundle.js",
+		"inputFiles": [
+			"input/assets/js/head-google-tag-manager.js",
+			"output/assets/js/temp/head-theme-selector-dropdown.js"
+		]
+	},
+	{
+		"outputFileName": "output/assets/js/stephhays.body.bundle.js",
+		"inputFiles": [
+			"output/assets/js/temp/body-facebook-share.js"
+		]
+	},
+	{
+		"outputFileName": "output/assets/js/stephhays.bundle.js",
+		"inputFiles": [
+			"output/assets/js/temp/init/st3phhays.js",
+			"output/assets/js/temp/lazy-load.js",
+			"output/assets/js/temp/confetti/confetti.browser.js",
+			"output/assets/js/temp/prism.js",
+			"output/assets/js/temp/code-prism.js",
+			"output/assets/js/temp/twitter-share.js",
+			"output/assets/js/temp/collapse-hash.js",
+			"output/assets/js/temp/confetti-ondemand.js",
+			"output/assets/js/temp/theme-selector-dropdown.js",
+			"output/assets/js/temp/tic-tac-toe.js",
+			"output/assets/js/temp/match-up.js",
+			"output/assets/js/temp/collapse-target.js",
+			"output/assets/js/temp/draggable.js"
+		]
+	}
+]

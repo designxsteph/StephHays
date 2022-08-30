@@ -51,6 +51,18 @@ function copyAssets() {
     var copyFontAwesome = src(paths.node_modules + '@fortawesome/fontawesome-free/webfonts/*.*')
         .pipe(dest(paths.output + 'fonts/fontawesome-free'));
 
+    var copySt3phhaysJs = src(paths.node_modules + 'st3phhays-assets/js/**/*.js')
+        .pipe(dest(paths.output + 'js/temp'));
+
+    var copyBootstrap = src(paths.node_modules + 'bootstrap/js/dist/**/*.js')
+        .pipe(dest(paths.output + 'js/temp/bootstrap'));
+
+    var copyPopper = src(paths.node_modules + '@popperjs/core/dist/umd/popper.js')
+        .pipe(dest(paths.output + 'js/temp/popper'));
+
+    var copyConfetti = src(paths.node_modules + 'canvas-confetti/dist/confetti.browser.js')
+        .pipe(dest(paths.output + 'js/temp/confetti'));
+
     var copyImages = src(paths.assets + 'images/**/*.*')
         .pipe(imagemin())
         .pipe(dest(paths.output + 'images'));
@@ -62,7 +74,7 @@ function copyAssets() {
     var copyManifest = src(paths.input + '/site.webmanifest')
         .pipe(dest('output'));
 
-    return merge(copyFontAwesome, copyImages, copyIcons, copyManifest);
+    return merge(copyFontAwesome, copySt3phhaysJs, copyBootstrap, copyPopper, copyConfetti, copyImages, copyIcons, copyManifest);
 }
 
 function compileScss() {
@@ -73,19 +85,24 @@ function compileScss() {
 
 function concatJs() {
     var tasks = getBundles(regex.js).map(function (bundle) {
-        return src(bundle.inputFiles, { base: '.' })
-            .pipe(babel({
-                "sourceType": "unambiguous",
+        var b = browserify({
+            entries: bundle.inputFiles,
+            debug: true,
+            transform: [babelify.configure({
                 "presets": [
-                    ["@babel/preset-env", {
-                        "targets": {
-                            "ie": "10"
-                        }
-                    }
-                ]]
-            }))
-            .pipe(concat(bundle.outputFileName))
+                    "@babel/preset-env",
+                   ["@babel/preset-react", {"runtime": "automatic"}],
+                ],
+                compact: false
+            })]
+        });
+        
+        return b.bundle()
+            .pipe(source(bundle.outputFileName))
+            .pipe(buffer())
+            .on('error', util.log)
             .pipe(dest('.'));
+
     });
 
     return merge(tasks);
