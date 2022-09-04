@@ -109,7 +109,7 @@ Title: Home
     </svg>
     <div class="container-lg position-relative z-index-2 py-6">
         <h1>Code Experiments</h1>
-        <a class="link-underline link-underline-black mb-5 h3 d-inline-block" href='@Context.GetLink("/code")' >View More Experiments</a>
+        <a class="link-underline link-underline-black mb-5 h3 d-inline-block" href='@Context.GetLink("/code/")' >View More Experiments</a>
         <div class="row">
             @{
                 IDocument[] recentCode = Outputs
@@ -354,7 +354,7 @@ Title: Home
 <section class="bg-zeta position-relative">
     <div class="container-lg py-6">
         <h1>Blog Ramblings</h1>
-        <a class="link-underline link-underline-black mb-5 h3 d-inline-block" href='@Context.GetLink("/blog")' >Read More Blogs</a>
+        <a class="link-underline link-underline-black mb-5 h3 d-inline-block" href='@Context.GetLink("/blog/")' >Read More Blogs</a>
         <div class="row">
             @{
                 IDocument[] recentBlogs = Outputs

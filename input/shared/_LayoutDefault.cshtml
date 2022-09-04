@@ -11,7 +11,7 @@
 @if(!Document.Keys.Contains("DisableConnect"))
 {
     <section id="connect" class='collapse bg-alpha position-relative @(Document.GetString(Keys.Title).Equals("Home") ? "show" : "")'>
-        <div id="draggableContainer" class="container-lg py-6">
+        <div class="container-lg py-6">
             <div class="row">
                 <div class="col-md-8 mx-auto">
                     @Html.Partial("~/shared/_Connect.cshtml")

@@ -1,0 +1,12 @@
+import { Tab, Dropdown } from 'bootstrap';
+import './lazy-load.js';
+import './prism.js';
+import './code-prism.js';
+import './twitter-share.js';
+import './collapse-hash.js';
+import './collapse-target.js';
+import './theme-selector-dropdown.js';
+import './confetti-ondemand.js';
+import './tic-tac-toe.js';
+import './match-up.js';
+import './draggable.js';

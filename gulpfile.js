@@ -51,6 +51,12 @@ function copyAssets() {
     var copyFontAwesome = src(paths.node_modules + '@fortawesome/fontawesome-free/webfonts/*.*')
         .pipe(dest(paths.output + 'fonts/fontawesome-free'));
 
+    var copySt3phhaysJs = src(paths.node_modules + 'st3phhays-assets/js/**/*.js')
+        .pipe(dest(paths.output + 'js/temp'));
+
+    var copyInitJs = src(paths.assets + 'js/stephhays.js')
+        .pipe(dest(paths.output + 'js/temp'));
+
     var copyImages = src(paths.assets + 'images/**/*.*')
         .pipe(imagemin())
         .pipe(dest(paths.output + 'images'));
@@ -62,7 +68,7 @@ function copyAssets() {
     var copyManifest = src(paths.input + '/site.webmanifest')
         .pipe(dest('output'));
 
-    return merge(copyFontAwesome, copyImages, copyIcons, copyManifest);
+    return merge(copyFontAwesome, copySt3phhaysJs, copyInitJs, copyImages, copyIcons, copyManifest);
 }
 
 function compileScss() {
@@ -73,19 +79,24 @@ function compileScss() {
 
 function concatJs() {
     var tasks = getBundles(regex.js).map(function (bundle) {
-        return src(bundle.inputFiles, { base: '.' })
-            .pipe(babel({
-                "sourceType": "unambiguous",
+        var b = browserify({
+            entries: bundle.inputFiles,
+            debug: true,
+            transform: [babelify.configure({
                 "presets": [
-                    ["@babel/preset-env", {
-                        "targets": {
-                            "ie": "10"
-                        }
-                    }
-                ]]
-            }))
-            .pipe(concat(bundle.outputFileName))
+                    "@babel/preset-env",
+                   ["@babel/preset-react", {"runtime": "automatic"}],
+                ],
+                compact: false
+            })]
+        });
+        
+        return b.bundle()
+            .pipe(source(bundle.outputFileName))
+            .pipe(buffer())
+            .on('error', util.log)
             .pipe(dest('.'));
+
     });
 
     return merge(tasks);
@@ -160,7 +171,8 @@ function delEnd() {
         paths.output + 'css/*.css',
         '!' + paths.output + 'css/*.min.css',
         paths.output + 'js/*.js',
-        '!' + paths.output + 'js/*.min.js'
+        '!' + paths.output + 'js/*.min.js',
+        paths.output + 'js/temp',
     ], { allowEmpty: true })
         .pipe(clean({ force: true }));
 }
